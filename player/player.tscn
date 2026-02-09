@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://bjyjyvtisvys3"]
+
+[ext_resource type="Script" uid="uid://bffig7vscod58" path="res://player/player.gd" id="1_g1dw6"]
+[ext_resource type="Script" uid="uid://byvh4x38sd01b" path="res://player/states/idle.gd" id="2_yw30f"]
+[ext_resource type="Script" uid="uid://b473pt6ti27l1" path="res://player/states/run.gd" id="3_qjkh3"]
+[ext_resource type="Script" uid="uid://dsb611lm5v1ox" path="res://player/states/jump.gd" id="4_qjkh3"]
+[ext_resource type="Script" uid="uid://gbryxbrq0bno" path="res://player/states/fall.gd" id="5_g6k8r"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_kqu6x"]
+size = Vector2(18, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oul6g"]
+size = Vector2(16, 46)
+
+[node name="Player" type="CharacterBody2D" unique_id=2110664578]
+script = ExtResource("1_g1dw6")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=783697793]
+position = Vector2(0, -24)
+texture = SubResource("PlaceholderTexture2D_kqu6x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=257840868]
+position = Vector2(0, -23)
+shape = SubResource("RectangleShape2D_oul6g")
+debug_color = Color(0, 0.6, 0.69803923, 0.37254903)
+
+[node name="States" type="Node" parent="." unique_id=1651436720]
+
+[node name="Idle" type="Node" parent="States" unique_id=265534554]
+unique_name_in_owner = true
+script = ExtResource("2_yw30f")
+
+[node name="Run" type="Node" parent="States" unique_id=737992940]
+unique_name_in_owner = true
+script = ExtResource("3_qjkh3")
+
+[node name="Jump" type="Node" parent="States" unique_id=1979920673]
+unique_name_in_owner = true
+script = ExtResource("4_qjkh3")
+
+[node name="Fall" type="Node" parent="States" unique_id=72253290]
+unique_name_in_owner = true
+script = ExtResource("5_g6k8r")
+
+[node name="Label" type="Label" parent="." unique_id=1859692505]
+offset_left = -36.0
+offset_top = -73.0
+offset_right = 38.0
+offset_bottom = -50.0
+theme_override_font_sizes/font_size = 12
+text = "label"
+horizontal_alignment = 1
