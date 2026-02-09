@@ -13,6 +13,19 @@ height = 32
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wt17y"]
 size = Vector2(32, 32)
 
+[sub_resource type="Gradient" id="Gradient_rupst"]
+offsets = PackedFloat32Array(0.18072289, 0.45180723)
+colors = PackedColorArray(0, 0, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_m8u5f"]
+gradient = SubResource("Gradient_rupst")
+width = 32
+height = 32
+fill_to = Vector2(0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o00ia"]
+size = Vector2(32, 32)
+
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_wt17y"]
 gradient = SubResource("Gradient_edjgo")
 
@@ -32,9 +45,6 @@ size = Vector2(32, 32)
 
 [node name="Playground" type="Node2D" unique_id=728941906]
 
-[node name="Player" parent="." unique_id=2110664578 instance=ExtResource("1_rupst")]
-position = Vector2(240, 233)
-
 [node name="Floor" type="Sprite2D" parent="." unique_id=1590905637]
 position = Vector2(239.99998, 254)
 scale = Vector2(15.000001, 1)
@@ -44,6 +54,19 @@ texture = SubResource("GradientTexture2D_rupst")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor/StaticBody2D" unique_id=185225338]
 shape = SubResource("RectangleShape2D_wt17y")
+
+[node name="OneWayPlatform" type="Sprite2D" parent="." unique_id=1910457718]
+position = Vector2(278, 125)
+scale = Vector2(3.7812493, 0.375)
+texture = SubResource("GradientTexture2D_m8u5f")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="OneWayPlatform" unique_id=1343166486]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OneWayPlatform/StaticBody2D" unique_id=881921168]
+shape = SubResource("RectangleShape2D_o00ia")
+one_way_collision = true
 
 [node name="Large Cube" type="Sprite2D" parent="." unique_id=2029622461]
 position = Vector2(370, 206)
@@ -114,3 +137,6 @@ texture = SubResource("GradientTexture2D_rupst")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wall Right/StaticBody2D" unique_id=2114314799]
 shape = SubResource("RectangleShape2D_wt17y")
+
+[node name="Player" parent="." unique_id=2110664578 instance=ExtResource("1_rupst")]
+position = Vector2(240, 233)

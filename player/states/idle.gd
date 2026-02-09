@@ -9,7 +9,7 @@ func init() -> void:
 
 # What happens when we enter this state?
 func enter() -> void:
-	# Play Animation
+	player.animation_player.play( "idle" )
 	pass
 
 
@@ -30,6 +30,8 @@ func handle_input( _event : InputEvent ) -> PlayerState:
 func process( _delta: float ) -> PlayerState:
 	if player.direction.x != 0:
 		return run
+	elif player.direction.y > 0.5:
+		return crouch 
 	return next_state
 
 
