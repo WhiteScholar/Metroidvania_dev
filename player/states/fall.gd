@@ -17,7 +17,6 @@ func init() -> void:
 # What happens when we enter this state?
 func enter() -> void:
 	player.animation_player.play( "jump" )
-	player.animation_player.pause()
 	player.gravity_multiplier = fall_gravity_multiplier
 	if player.previous_state == jump:
 		coyote_timer = 0
