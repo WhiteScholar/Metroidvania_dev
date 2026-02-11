@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="Metroidvania Demo"
-run/main_scene="uid://bj3uxm2ntak3e"
+run/main_scene="uid://bmgo6n4mnrnfc"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="uid://dp75srv7kiyw3"
+
+[autoload]
+
+SceneManager="*uid://bjx16d8kvh3v2"
 
 [display]
 
@@ -22,6 +26,10 @@ window/size/viewport_height=270
 window/size/window_width_override=1440
 window/size/window_height_override=810
 window/stretch/mode="canvas_items"
+
+[global_group]
+
+Player=""
 
 [input]
 
@@ -70,6 +78,7 @@ action={
 
 2d_physics/layer_1="Ground"
 2d_physics/layer_2="One Way Platform"
+2d_physics/layer_5="Player"
 
 [physics]
 

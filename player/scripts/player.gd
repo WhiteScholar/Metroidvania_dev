@@ -34,7 +34,9 @@ var gravity_multiplier : float = 1
 
 
 func _ready() -> void:
+	
 	initialize_states()
+	self.call_deferred( "reparent", get_tree().root )
 	pass
 
 
