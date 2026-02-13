@@ -2,6 +2,9 @@
 
 [ext_resource type="Texture2D" uid="uid://dj8j8e3p64wba" path="res://levels/tilesets/sprites/forgotten_forest_example_tileset.png" id="1_uh0r3"]
 
+[sub_resource type="TileMapPattern" id="TileMapPattern_uh0r3"]
+tile_data = PackedInt32Array(65536, 1638400, 268435466, 131072, 1638400, 268435467, 196608, 1638400, 268435468, 262144, 1638400, 268435469, 1, 1572864, 268435465, 65537, 1572864, 268435466, 131073, 1572864, 268435467, 196609, 1572864, 268435468, 262145, 1572864, 268435469, 327681, 1572864, 268435470, 393217, 1572864, 268435471, 2, 1507328, 268435465, 65538, 1507328, 268435466, 131074, 1507328, 268435467, 196610, 1507328, 268435468, 262146, 1507328, 268435469)
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fcive"]
 texture = ExtResource("1_uh0r3")
 texture_region_size = Vector2i(32, 32)
@@ -939,10 +942,6 @@ texture_region_size = Vector2i(32, 32)
 12:7/0 = 0
 13:7/0 = 0
 14:7/0 = 0
-16:7/0 = 0
-17:7/0 = 0
-18:7/0 = 0
-19:7/0 = 0
 20:7/0 = 0
 21:7/0 = 0
 25:7/0 = 0
@@ -973,11 +972,6 @@ texture_region_size = Vector2i(32, 32)
 12:8/0 = 0
 13:8/0 = 0
 14:8/0 = 0
-16:8/0 = 0
-17:8/0 = 0
-18:8/0 = 0
-19:8/0 = 0
-20:8/0 = 0
 21:8/0 = 0
 26:8/0 = 0
 27:8/0 = 0
@@ -1005,11 +999,6 @@ texture_region_size = Vector2i(32, 32)
 12:9/0 = 0
 13:9/0 = 0
 14:9/0 = 0
-16:9/0 = 0
-17:9/0 = 0
-18:9/0 = 0
-19:9/0 = 0
-20:9/0 = 0
 23:9/0 = 0
 24:9/0 = 0
 26:9/0 = 0
@@ -1189,3 +1178,4 @@ terrain_set_0/terrain_0/color = Color(5.1018596e-06, 0.7103147, 0.75159144, 1)
 terrain_set_0/terrain_1/name = "Grass_Terrain"
 terrain_set_0/terrain_1/color = Color(0, 0.67447853, 0.2975495, 1)
 sources/0 = SubResource("TileSetAtlasSource_fcive")
+pattern_0 = SubResource("TileMapPattern_uh0r3")

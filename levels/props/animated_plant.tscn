@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://47s4jb3bi1n1"]
+
+[ext_resource type="Texture2D" uid="uid://dj8j8e3p64wba" path="res://levels/tilesets/sprites/forgotten_forest_example_tileset.png" id="1_e8kts"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2adht"]
+atlas = ExtResource("1_e8kts")
+region = Rect2(512, 224, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dei6d"]
+atlas = ExtResource("1_e8kts")
+region = Rect2(544, 224, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k76uv"]
+atlas = ExtResource("1_e8kts")
+region = Rect2(576, 224, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a1p76"]
+atlas = ExtResource("1_e8kts")
+region = Rect2(608, 224, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0ypjm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2adht")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dei6d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k76uv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a1p76")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k76uv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dei6d")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
+[node name="Animated Plant" type="AnimatedSprite2D" unique_id=1053163850]
+sprite_frames = SubResource("SpriteFrames_0ypjm")
+autoplay = "default"
+frame_progress = 0.04193731
+offset = Vector2(0, -16)
