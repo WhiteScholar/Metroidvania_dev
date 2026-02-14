@@ -9,7 +9,11 @@ func init() -> void:
 
 # What happens when we enter this state?
 func enter() -> void:
-	player.animation_player.play( "idle" )
+	if player.previous_state == crouch:
+		player.animation_player.play_backwards("crouch")
+		player.animation_player.queue("idle")
+	else:
+		player.animation_player.play( "idle" )
 	pass
 
 
