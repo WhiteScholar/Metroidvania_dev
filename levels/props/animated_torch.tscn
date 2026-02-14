@@ -57,6 +57,35 @@ height = 512
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_dg56u"]
+blend_mode = 1
+light_mode = 1
+
+[sub_resource type="Gradient" id="Gradient_dg56u"]
+offsets = PackedFloat32Array(0, 0.21311475, 0.45901638, 0.6393443, 1)
+colors = PackedColorArray(0.80598646, 0.80304223, 0.4488669, 1, 0.67577326, 0.6065154, 0.15089318, 1, 0.73333335, 0.15750541, 0.07843139, 1, 0.7104485, 0.44458652, 0.09824918, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_jk7ty"]
+gradient = SubResource("Gradient_dg56u")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_2sxnx"]
+particle_flag_disable_z = true
+emission_shape = 2
+emission_sphere_radius = 3.0
+direction = Vector3(0, -20, 0)
+initial_velocity_min = 20.0
+initial_velocity_max = 300.0
+angular_velocity_min = -200.00002
+angular_velocity_max = 199.99998
+gravity = Vector3(0, 98, 0)
+scale_min = 0.5
+scale_max = 1.5
+color_ramp = SubResource("GradientTexture1D_jk7ty")
+turbulence_enabled = true
+turbulence_influence_max = 0.3
+turbulence_initial_displacement_min = -19.999998
+turbulence_initial_displacement_max = 20.000002
+
 [node name="AnimatedTorch" type="AnimatedSprite2D" unique_id=1553813932]
 sprite_frames = SubResource("SpriteFrames_73ntp")
 autoplay = "default"
@@ -71,3 +100,10 @@ offset = Vector2(0, -32)
 script = ExtResource("2_dg56u")
 flicker_intensity = 0.125
 flicker_frequency = 0.3
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=1576274225]
+material = SubResource("CanvasItemMaterial_dg56u")
+position = Vector2(0, -32)
+amount = 4
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_2sxnx")

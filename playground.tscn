@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bj3uxm2ntak3e"]
 
-[ext_resource type="PackedScene" uid="uid://bjyjyvtisvys3" path="res://player/player.tscn" id="1_rupst"]
+[ext_resource type="PackedScene" uid="uid://im35ksfavjk" path="res://general/player_spawn/player_spawn.tscn" id="1_rupst"]
 
 [sub_resource type="Gradient" id="Gradient_edjgo"]
 colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
@@ -138,5 +138,5 @@ texture = SubResource("GradientTexture2D_rupst")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wall Right/StaticBody2D" unique_id=2114314799]
 shape = SubResource("RectangleShape2D_wt17y")
 
-[node name="Player" parent="." unique_id=2110664578 instance=ExtResource("1_rupst")]
-position = Vector2(35, 176)
+[node name="PlayerSpawn" parent="." unique_id=327685397 instance=ExtResource("1_rupst")]
+position = Vector2(41, 175)
