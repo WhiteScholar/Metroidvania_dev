@@ -25,6 +25,16 @@ var previous_state : PlayerState :
 	get : return states[ 1 ]
 #endregion
 
+#region /// Player Stats
+@export var hp : float = 20
+@export var max_hp : float = 20
+@export var dash : bool = false
+@export var double_jump : bool = false
+@export var ground_slam : bool = false
+@export var morph_roll : bool = false
+#endregion
+
+
 #region /// standard variables
 var direction : Vector2 = Vector2.ZERO
 var gravity : float = 980

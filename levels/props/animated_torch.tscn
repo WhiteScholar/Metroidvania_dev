@@ -89,7 +89,6 @@ turbulence_initial_displacement_max = 20.000002
 [node name="AnimatedTorch" type="AnimatedSprite2D" unique_id=1553813932]
 sprite_frames = SubResource("SpriteFrames_73ntp")
 autoplay = "default"
-frame_progress = 0.8405772
 offset = Vector2(0, -32)
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=59682873]

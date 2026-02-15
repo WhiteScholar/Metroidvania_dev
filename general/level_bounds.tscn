@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://v3qvajnvqe3d"]
+
+[ext_resource type="Script" uid="uid://c3gno8ambasd8" path="res://general/scripts/level_bounds.gd" id="1_l5o2d"]
+
+[node name="LevelBounds" type="Node2D" unique_id=268695596]
+script = ExtResource("1_l5o2d")

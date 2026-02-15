@@ -96,7 +96,7 @@ func get_offset( player : Node2D ) -> Vector2:
 func get_transition_direction() -> String:
 	match location:
 		SIDE.LEFT:
-			return"left"
+			return "left"
 		SIDE.RIGHT:
 			return "right"
 		SIDE.TOP:

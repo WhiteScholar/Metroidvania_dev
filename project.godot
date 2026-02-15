@@ -18,6 +18,7 @@ config/icon="uid://dp75srv7kiyw3"
 [autoload]
 
 SceneManager="*uid://bjx16d8kvh3v2"
+SaveManager="*uid://d00xlaa5werpp"
 
 [display]
 

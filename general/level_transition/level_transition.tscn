@@ -9,7 +9,7 @@ size = Vector2(32, 32)
 script = ExtResource("1_d5xbk")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=22408495]
-scale = Vector2(1, 2)
+scale = Vector2(-1, 2)
 collision_layer = 0
 collision_mask = 16
 monitorable = false
