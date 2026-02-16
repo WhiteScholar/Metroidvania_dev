@@ -17,6 +17,7 @@ func _ready() -> void:
 	var current_scene : String = get_tree().current_scene.scene_file_path
 	print( current_scene )
 	current_scene_uid = ResourceUID.path_to_uid( current_scene )
+	scene_entered.emit( current_scene_uid )
 	print( current_scene_uid )
 	pass
 
