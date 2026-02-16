@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bsd127rot20a6" path="res://levels/tilesets/sprites/light_stream.jpg" id="4_r7adf"]
 [ext_resource type="Material" uid="uid://4hyfcstbl3cq" path="res://Materials/Shaders/fog_fade_material.tres" id="6_nqq0o"]
 [ext_resource type="PackedScene" uid="uid://im35ksfavjk" path="res://general/player_spawn/player_spawn.tscn" id="7_c06eb"]
+[ext_resource type="PackedScene" uid="uid://p4x58tmgyof2" path="res://general/save_point/save_point.tscn" id="8_1pjxa"]
 
 [sub_resource type="Gradient" id="Gradient_vhcel"]
 offsets = PackedFloat32Array(0.22289157, 0.43975905, 0.9879518)
@@ -117,10 +118,10 @@ tile_set = ExtResource("2_vv2jw")
 [node name="Props" type="Node2D" parent="." unique_id=1848438729]
 
 [node name="AnimatedTorch" parent="Props" unique_id=1553813932 instance=ExtResource("3_7vwju")]
-position = Vector2(116, 196)
+position = Vector2(64, 228)
 
 [node name="AnimatedTorch2" parent="Props" unique_id=64155235 instance=ExtResource("3_7vwju")]
-position = Vector2(237, 196)
+position = Vector2(284, 228)
 
 [node name="LevelTransition" parent="." unique_id=950032092 instance=ExtResource("3_vv2jw")]
 position = Vector2(0, 224)
@@ -144,6 +145,7 @@ scale = Vector2(4.5134172, 2.7517138)
 texture = SubResource("GradientTexture2D_7vwju")
 
 [node name="Foreground Trees2" type="Parallax2D" parent="." unique_id=33562585]
+visible = false
 z_index = 10
 scroll_scale = Vector2(1.4, 1.4)
 
@@ -227,5 +229,8 @@ material = ExtResource("6_nqq0o")
 position = Vector2(84, 160)
 texture = SubResource("NoiseTexture2D_c06eb")
 
+[node name="SavePoint" parent="." unique_id=243418528 instance=ExtResource("8_1pjxa")]
+position = Vector2(175, 196)
+
 [node name="PlayerSpawn" parent="." unique_id=327685397 instance=ExtResource("7_c06eb")]
-position = Vector2(176, 196)
+position = Vector2(160, 196)

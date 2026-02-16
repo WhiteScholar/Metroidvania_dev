@@ -6,6 +6,8 @@
 [ext_resource type="Script" uid="uid://dsb611lm5v1ox" path="res://player/states/jump.gd" id="4_qjkh3"]
 [ext_resource type="Script" uid="uid://gbryxbrq0bno" path="res://player/states/fall.gd" id="5_g6k8r"]
 [ext_resource type="Script" uid="uid://bn1ucofsxvrrr" path="res://player/states/crouch.gd" id="6_g6k8r"]
+[ext_resource type="Script" uid="uid://deayldrnip1d6" path="res://player/scripts/input_hints.gd" id="7_rgyib"]
+[ext_resource type="Texture2D" uid="uid://csa1ryuq8w0xd" path="res://player/sprites/input_icons.png" id="8_hg6s5"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_g6k8r"]
 load_path = "res://.godot/imported/hero.png-90a362881ab5da47bb204d6eae108e57.ctex"
@@ -200,3 +202,11 @@ visible = false
 color = Color(1, 1, 1, 0.5882353)
 texture = SubResource("GradientTexture2D_boad6")
 offset = Vector2(0, -16)
+
+[node name="InputHints" type="Node2D" parent="." unique_id=332082164]
+position = Vector2(0, -64)
+script = ExtResource("7_rgyib")
+
+[node name="Sprite2D" type="Sprite2D" parent="InputHints" unique_id=102063414]
+texture = ExtResource("8_hg6s5")
+hframes = 16
