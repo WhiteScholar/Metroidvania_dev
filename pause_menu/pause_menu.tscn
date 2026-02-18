@@ -57,6 +57,11 @@ _data = {
 &"default": SubResource("Animation_s1glv")
 }
 
+[sub_resource type="LabelSettings" id="LabelSettings_rd7dy"]
+font_color = Color(0.4627451, 0.19215687, 0.15294118, 1)
+shadow_size = 3
+shadow_color = Color(0.20405686, 0, 0, 1)
+
 [node name="PauseMenu" type="CanvasLayer" unique_id=103866749]
 process_mode = 3
 script = ExtResource("1_5hbt6")
@@ -263,7 +268,7 @@ offset_top = 22.0
 offset_right = 144.0
 offset_bottom = 194.0
 grow_horizontal = 2
-theme_override_constants/separation = 20
+theme_override_constants/separation = 12
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Control/System/VBoxContainer" unique_id=1625378419]
 layout_mode = 2
@@ -284,15 +289,31 @@ text = "Return to Title"
 layout_mode = 2
 text = "Audio Levels"
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="Control/System/VBoxContainer" unique_id=85558683]
+[node name="HBoxContainer2" type="HBoxContainer" parent="Control/System/VBoxContainer" unique_id=1014143979]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Control/System/VBoxContainer/HBoxContainer2" unique_id=814024543]
+[node name="Label" type="Label" parent="Control/System/VBoxContainer/HBoxContainer2" unique_id=525117447]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+text = "Master"
+
+[node name="MasterSlider" type="HSlider" parent="Control/System/VBoxContainer/HBoxContainer2" unique_id=1259046347]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 1.0
+step = 0.05
+value = 0.5
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Control/System/VBoxContainer" unique_id=85558683]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/System/VBoxContainer/HBoxContainer3" unique_id=814024543]
 custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
 text = "Music"
 
-[node name="MusicSlider" type="HSlider" parent="Control/System/VBoxContainer/HBoxContainer2" unique_id=1206328979]
+[node name="MusicSlider" type="HSlider" parent="Control/System/VBoxContainer/HBoxContainer3" unique_id=1206328979]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -300,15 +321,15 @@ max_value = 1.0
 step = 0.05
 value = 0.5
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="Control/System/VBoxContainer" unique_id=744095193]
+[node name="HBoxContainer4" type="HBoxContainer" parent="Control/System/VBoxContainer" unique_id=744095193]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Control/System/VBoxContainer/HBoxContainer3" unique_id=1914885473]
+[node name="Label" type="Label" parent="Control/System/VBoxContainer/HBoxContainer4" unique_id=1914885473]
 custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
 text = "SFX"
 
-[node name="SFXSlider" type="HSlider" parent="Control/System/VBoxContainer/HBoxContainer3" unique_id=1300230887]
+[node name="SFXSlider" type="HSlider" parent="Control/System/VBoxContainer/HBoxContainer4" unique_id=1300230887]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -316,18 +337,133 @@ max_value = 1.0
 step = 0.05
 value = 0.5
 
-[node name="HBoxContainer4" type="HBoxContainer" parent="Control/System/VBoxContainer" unique_id=1855963106]
+[node name="HBoxContainer5" type="HBoxContainer" parent="Control/System/VBoxContainer" unique_id=1855963106]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Control/System/VBoxContainer/HBoxContainer4" unique_id=687611858]
+[node name="Label" type="Label" parent="Control/System/VBoxContainer/HBoxContainer5" unique_id=687611858]
 custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
 text = "UI"
 
-[node name="UISlider" type="HSlider" parent="Control/System/VBoxContainer/HBoxContainer4" unique_id=1250537863]
+[node name="UISlider" type="HSlider" parent="Control/System/VBoxContainer/HBoxContainer5" unique_id=1250537863]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 max_value = 1.0
 step = 0.05
 value = 0.5
+
+[node name="HBoxContainer6" type="HBoxContainer" parent="Control/System/VBoxContainer" unique_id=2097470576]
+layout_mode = 2
+
+[node name="SaveConfigButton" type="Button" parent="Control/System/VBoxContainer/HBoxContainer6" unique_id=1726272006]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Save Settings"
+
+[node name="ConfigSaved" type="Control" parent="Control" unique_id=1575357473]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchor_left = 0.26875
+anchor_top = 0.36666667
+anchor_right = 0.73125
+anchor_bottom = 0.6333333
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Control/ConfigSaved" unique_id=319166148]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.17775077, 0.17775077, 0.17775077, 1)
+
+[node name="ColorRec2" type="ColorRect" parent="Control/ConfigSaved" unique_id=1380962518]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 2.0
+offset_bottom = 21.0
+grow_horizontal = 2
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRec3" type="ColorRect" parent="Control/ConfigSaved" unique_id=893180878]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -2.0
+grow_horizontal = 0
+grow_vertical = 2
+color = Color(0.513153, 0.513153, 0.513153, 1)
+
+[node name="ColorRec4" type="ColorRect" parent="Control/ConfigSaved" unique_id=2082983178]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -2.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0.513153, 0.513153, 0.513153, 1)
+
+[node name="ColorRec5" type="ColorRect" parent="Control/ConfigSaved" unique_id=248446861]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 2.0
+grow_vertical = 2
+color = Color(0.513153, 0.513153, 0.513153, 1)
+
+[node name="ColorRec6" type="ColorRect" parent="Control/ConfigSaved" unique_id=1171525634]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 2.0
+grow_horizontal = 2
+color = Color(0.513153, 0.513153, 0.513153, 1)
+
+[node name="ColorRec7" type="ColorRect" parent="Control/ConfigSaved" unique_id=275306746]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 21.0
+offset_bottom = 23.0
+grow_horizontal = 2
+color = Color(0.513153, 0.513153, 0.513153, 1)
+
+[node name="Label" type="Label" parent="Control/ConfigSaved" unique_id=1809169838]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 2.0
+offset_bottom = 21.0
+grow_horizontal = 2
+text = "Settings Saved"
+label_settings = SubResource("LabelSettings_rd7dy")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/ConfigSaved" unique_id=2004100674]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.04054054
+anchor_top = 0.31944445
+anchor_right = 0.9594595
+anchor_bottom = 0.9722222
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="ConfirmButton" type="Button" parent="Control/ConfigSaved/VBoxContainer" unique_id=150063772]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 4
+text = "OK"

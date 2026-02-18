@@ -162,8 +162,8 @@ func display_player_location() -> void:
 	var i : Control = %PlayerIndicator #$"../PlayerIndicator"
 	var pos : Vector2 = position
 	pos += (( player.global_position - indicator_offset ) / SCALE_FACTOR )
-	var clamp : Vector2 = Vector2( 3,3 )
-	pos.clamp( position + clamp, position + size - clamp )
+	var clamp_pos : Vector2 = Vector2( 3,3 )
+	pos.clamp( position + clamp_pos, position + size - clamp_pos )
 	i.position = pos
 	
 	pass

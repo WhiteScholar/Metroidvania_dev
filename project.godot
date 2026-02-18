@@ -15,12 +15,17 @@ run/main_scene="uid://dji5pxeshmufo"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="uid://dp75srv7kiyw3"
 
+[audio]
+
+buses/default_bus_layout="uid://dfjpp3ghdb54f"
+
 [autoload]
 
 SceneManager="*uid://bjx16d8kvh3v2"
 SaveManager="*uid://d00xlaa5werpp"
 Messages="*uid://n340eaoat3s1"
 PlayerHud="*uid://djenn8uxmueyr"
+Audio="*uid://cmt52wykgdloh"
 
 [display]
 

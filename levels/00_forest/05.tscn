@@ -4,6 +4,8 @@
 [ext_resource type="TileSet" uid="uid://cb8chiiogr5sv" path="res://levels/tilesets/forgotten_forest.tres" id="2_e8knj"]
 [ext_resource type="PackedScene" uid="uid://c1byh8d2kfyd4" path="res://levels/props/animated_torch.tscn" id="3_u6uvq"]
 [ext_resource type="PackedScene" uid="uid://diup2cux1yhyv" path="res://general/level_transition/level_transition.tscn" id="4_ocngb"]
+[ext_resource type="Script" uid="uid://o3qjlqlshdpl" path="res://music/music_auto_trigger.gd" id="5_u6uvq"]
+[ext_resource type="AudioStream" uid="uid://dr7br0pd7lxit" path="res://music/dungeon_01.ogg" id="6_ocngb"]
 
 [node name="04" type="Node2D" unique_id=985948519]
 
@@ -52,3 +54,9 @@ target_area_name = "LevelTransition3"
 position = Vector2(1024, 160)
 size = 3
 location = 1
+
+[node name="MusicAutoTrigger" type="Node" parent="." unique_id=538856296]
+script = ExtResource("5_u6uvq")
+track = ExtResource("6_ocngb")
+reverb = 1
+metadata/_custom_type_script = "uid://o3qjlqlshdpl"

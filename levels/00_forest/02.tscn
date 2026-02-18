@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://c1byh8d2kfyd4" path="res://levels/props/animated_torch.tscn" id="4_s2tn3"]
 [ext_resource type="Texture2D" uid="uid://bsd127rot20a6" path="res://levels/tilesets/sprites/light_stream.jpg" id="5_o5ap7"]
 [ext_resource type="PackedScene" uid="uid://im35ksfavjk" path="res://general/player_spawn/player_spawn.tscn" id="6_tfgdr"]
+[ext_resource type="Script" uid="uid://o3qjlqlshdpl" path="res://music/music_auto_trigger.gd" id="7_yy75x"]
+[ext_resource type="AudioStream" uid="uid://dr7br0pd7lxit" path="res://music/dungeon_01.ogg" id="8_lj4o7"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_tfgdr"]
 blend_mode = 1
@@ -88,3 +90,9 @@ position = Vector2(1056, 224)
 size = 3
 location = 1
 target_level = "uid://cym3wx6htovpr"
+
+[node name="MusicAutoTrigger" type="Node" parent="." unique_id=231095944]
+script = ExtResource("7_yy75x")
+track = ExtResource("8_lj4o7")
+reverb = 2
+metadata/_custom_type_script = "uid://o3qjlqlshdpl"
