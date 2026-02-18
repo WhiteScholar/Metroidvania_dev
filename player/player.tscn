@@ -1,13 +1,19 @@
 [gd_scene format=3 uid="uid://bjyjyvtisvys3"]
 
 [ext_resource type="Script" uid="uid://bffig7vscod58" path="res://player/scripts/player.gd" id="1_g1dw6"]
+[ext_resource type="AudioStream" uid="uid://b4woqcacvy3v7" path="res://sfx/jump.wav" id="2_ebec5"]
 [ext_resource type="Script" uid="uid://byvh4x38sd01b" path="res://player/states/idle.gd" id="2_yw30f"]
 [ext_resource type="Script" uid="uid://b473pt6ti27l1" path="res://player/states/run.gd" id="3_qjkh3"]
+[ext_resource type="AudioStream" uid="uid://cluu3cr0uaxts" path="res://sfx/land.wav" id="3_yllr7"]
+[ext_resource type="AudioStream" uid="uid://cm3ky8a4rs3ui" path="res://sfx/hit.wav" id="4_kb6p2"]
 [ext_resource type="Script" uid="uid://dsb611lm5v1ox" path="res://player/states/jump.gd" id="4_qjkh3"]
 [ext_resource type="Script" uid="uid://gbryxbrq0bno" path="res://player/states/fall.gd" id="5_g6k8r"]
 [ext_resource type="Script" uid="uid://bn1ucofsxvrrr" path="res://player/states/crouch.gd" id="6_g6k8r"]
+[ext_resource type="Script" uid="uid://dsn7nxcj0vm17" path="res://player/scripts/player_camera.gd" id="7_hg6s5"]
 [ext_resource type="Script" uid="uid://deayldrnip1d6" path="res://player/scripts/input_hints.gd" id="7_rgyib"]
 [ext_resource type="Texture2D" uid="uid://csa1ryuq8w0xd" path="res://player/sprites/input_icons.png" id="8_hg6s5"]
+[ext_resource type="Script" uid="uid://buaotar8bl2u0" path="res://player/states/attack_TEST.gd" id="10_kb6p2"]
+[ext_resource type="Script" uid="uid://bhjb4dav7ymst" path="res://general/scripts/attack_area.gd" id="13_yllr7"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_g6k8r"]
 load_path = "res://.godot/imported/hero.png-90a362881ab5da47bb204d6eae108e57.ctex"
@@ -32,6 +38,23 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_yllr7"]
+resource_name = "attack_TEST"
+length = 0.2
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [33, 34, 35, 36]
 }
 
 [sub_resource type="Animation" id="Animation_boad6"]
@@ -103,6 +126,7 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2ieo8"]
 _data = {
 &"RESET": SubResource("Animation_g6k8r"),
+&"attack_TEST": SubResource("Animation_yllr7"),
 &"crouch": SubResource("Animation_boad6"),
 &"idle": SubResource("Animation_rgyib"),
 &"jump": SubResource("Animation_hg6s5"),
@@ -123,6 +147,9 @@ height = 256
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kb6p2"]
+size = Vector2(40, 18)
+
 [node name="Player" type="CharacterBody2D" unique_id=2110664578 groups=["Player"]]
 z_index = 1
 collision_layer = 16
@@ -130,6 +157,9 @@ collision_mask = 3
 floor_constant_speed = true
 floor_snap_length = 3.0
 script = ExtResource("1_g1dw6")
+jump_sfx_audio = ExtResource("2_ebec5")
+land_sfx_audio = ExtResource("3_yllr7")
+hit_sfx_audio = ExtResource("4_kb6p2")
 
 [node name="States" type="Node" parent="." unique_id=1651436720]
 
@@ -152,6 +182,11 @@ script = ExtResource("5_g6k8r")
 [node name="Crouch" type="Node" parent="States" unique_id=969083024]
 unique_name_in_owner = true
 script = ExtResource("6_g6k8r")
+
+[node name="attack_TEST" type="Node" parent="States" unique_id=964342278]
+unique_name_in_owner = true
+script = ExtResource("10_kb6p2")
+metadata/_custom_type_script = "uid://buaotar8bl2u0"
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=783697793]
 position = Vector2(0, -24)
@@ -196,10 +231,11 @@ collision_mask = 2
 [node name="Camera2D" type="Camera2D" parent="." unique_id=524027182]
 process_mode = 3
 position = Vector2(0, -40)
+script = ExtResource("7_hg6s5")
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=53756889]
-visible = false
 color = Color(1, 1, 1, 0.5882353)
+energy = 0.5
 texture = SubResource("GradientTexture2D_boad6")
 offset = Vector2(0, -16)
 
@@ -210,3 +246,16 @@ script = ExtResource("7_rgyib")
 [node name="Sprite2D" type="Sprite2D" parent="InputHints" unique_id=102063414]
 texture = ExtResource("8_hg6s5")
 hframes = 16
+
+[node name="AttackArea" type="Area2D" parent="." unique_id=826356700]
+unique_name_in_owner = true
+position = Vector2(0, -23)
+collision_layer = 0
+collision_mask = 96
+script = ExtResource("13_yllr7")
+metadata/_custom_type_script = "uid://bhjb4dav7ymst"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea" unique_id=530235831]
+position = Vector2(20, 1)
+shape = SubResource("RectangleShape2D_kb6p2")
+debug_color = Color(0.70196074, 0.01117102, 0, 0.41960785)

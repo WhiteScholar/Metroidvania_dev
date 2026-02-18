@@ -14,6 +14,9 @@ const DEBUG_JUMP_INDICATOR = preload("uid://dc6eu2r6qgcxb")
 #region /// export variables
 @export var move_speed : float = 150
 @export var max_fall_velocity: float = 600
+@export var jump_sfx_audio : AudioStream
+@export var land_sfx_audio : AudioStream
+@export var hit_sfx_audio : AudioStream
 #endregion
 
 
@@ -73,7 +76,7 @@ func _unhandled_input( event: InputEvent ) -> void:
 		return
 	
 	#region /// FOR TESTING ONLY
-	if Engine.is_embedded_in_editor():
+	if OS.is_debug_build():
 		if event is InputEventKey and event.pressed:
 			if event.keycode == KEY_MINUS:
 				if Input.is_key_pressed( KEY_SHIFT ):

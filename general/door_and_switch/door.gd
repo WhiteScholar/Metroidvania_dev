@@ -6,6 +6,8 @@ const DOOR_CRASH_AUDIO = preload("res://general/door_and_switch/door_crash.wav")
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
+@export var camera_shake_on_open : float = 0
+@export var particle_settings : HitParticleSettings
 
 func _ready() -> void:
 	if Engine.is_editor_hint():
@@ -24,6 +26,9 @@ func _on_switch_activated() -> void:
 	Audio.play_spacial_sound( DOOR_CRASH_AUDIO, global_position )
 	# Play Animation
 	animation_player.play( "open" )
+	VisualEffects.hit_particles( Vector2( global_position.x, global_position.y - 96.0 ), Vector2(0,1), particle_settings )
+	VisualEffects.hit_particles( Vector2( global_position.x, global_position.y ), Vector2(0,-1), particle_settings )
+	VisualEffects.camera_shake( camera_shake_on_open )
 	pass
 
 

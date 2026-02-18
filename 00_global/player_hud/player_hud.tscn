@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://ch1eyt8emf72h" path="res://00_global/player_hud/health_bar_frame.png" id="1_hv14i"]
 [ext_resource type="Script" uid="uid://3i5kpm7d5eru" path="res://00_global/player_hud/player_hud.gd" id="1_vb1bs"]
+[ext_resource type="Resource" uid="uid://djsiedmt58yd3" path="res://00_global/visual_effects/hit_particle_settings/hit_wood_medium.tres" id="3_26715"]
 
 [sub_resource type="Gradient" id="Gradient_vb1bs"]
 colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
@@ -15,8 +16,25 @@ colors = PackedColorArray(1, 0.37504625, 0.405111, 1, 1, 0.23693943, 0.27053314,
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_4jtec"]
 gradient = SubResource("Gradient_tdgrf")
 
+[sub_resource type="GDScript" id="GDScript_vb1bs"]
+script/source = "extends Button
+
+@export var particle_settings : HitParticleSettings
+
+func _ready() -> void:
+	pressed.connect( _on_pressed )
+	pass
+
+func _on_pressed() -> void:
+	var pos : Vector2 = get_tree().get_first_node_in_group(\"Player\").global_position
+	VisualEffects.hit_particles( pos, Vector2(0,0), particle_settings )
+	VisualEffects.camera_shake()
+	pass
+"
+
 [node name="PlayerHud" type="CanvasLayer" unique_id=1049387290]
 process_mode = 3
+layer = 2
 script = ExtResource("1_vb1bs")
 
 [node name="Control" type="Control" parent="." unique_id=1152643652]
@@ -63,3 +81,13 @@ rounded = true
 nine_patch_stretch = true
 texture_under = SubResource("GradientTexture2D_26715")
 texture_progress = SubResource("GradientTexture2D_4jtec")
+
+[node name="Button" type="Button" parent="Control" unique_id=908152629]
+layout_mode = 0
+offset_left = 369.0
+offset_top = 3.0
+offset_right = 477.0
+offset_bottom = 26.0
+text = "Test Particles"
+script = SubResource("GDScript_vb1bs")
+particle_settings = ExtResource("3_26715")

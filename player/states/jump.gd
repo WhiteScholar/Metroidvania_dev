@@ -11,6 +11,8 @@ func init() -> void:
 
 # What happens when we enter this state?
 func enter() -> void:
+	VisualEffects.jump_dust( player.global_position )
+	Audio.play_spacial_sound(player.jump_sfx_audio, player.global_position)
 	player.animation_player.play( "jump" )
 	player.animation_player.pause()
 	#player.add_debug_indicator( Color.LIME_GREEN )

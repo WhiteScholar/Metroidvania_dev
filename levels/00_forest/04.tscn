@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://diup2cux1yhyv" path="res://general/level_transition/level_transition.tscn" id="4_k841l"]
 [ext_resource type="PackedScene" uid="uid://dk6kr6oghsw6x" path="res://general/door_and_switch/door.tscn" id="5_2hhtl"]
 [ext_resource type="PackedScene" uid="uid://n7pmxxckvq2n" path="res://general/door_and_switch/switch.tscn" id="6_1vjl2"]
+[ext_resource type="Resource" uid="uid://v648smhyfjgq" path="res://00_global/visual_effects/hit_particle_settings/hit_stone_small.tres" id="6_d3fjw"]
 [ext_resource type="PackedScene" uid="uid://im35ksfavjk" path="res://general/player_spawn/player_spawn.tscn" id="7_k841l"]
 [ext_resource type="Script" uid="uid://o3qjlqlshdpl" path="res://music/music_auto_trigger.gd" id="8_rklp7"]
 [ext_resource type="AudioStream" uid="uid://dr7br0pd7lxit" path="res://music/dungeon_01.ogg" id="9_d3fjw"]
@@ -60,6 +61,8 @@ location = 1
 
 [node name="Door" parent="." unique_id=560612131 instance=ExtResource("5_2hhtl")]
 position = Vector2(512, 159)
+camera_shake_on_open = 5.0
+particle_settings = ExtResource("6_d3fjw")
 
 [node name="Switch" parent="Door" unique_id=110465436 instance=ExtResource("6_1vjl2")]
 position = Vector2(-124, 35)

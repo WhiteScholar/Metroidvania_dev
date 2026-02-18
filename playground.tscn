@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bj3uxm2ntak3e"]
 
 [ext_resource type="PackedScene" uid="uid://im35ksfavjk" path="res://general/player_spawn/player_spawn.tscn" id="1_rupst"]
+[ext_resource type="Script" uid="uid://ccykaixb6egdi" path="res://general/scripts/damage_area.gd" id="2_wt17y"]
 
 [sub_resource type="Gradient" id="Gradient_edjgo"]
 colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
@@ -43,6 +44,8 @@ height = 32
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4bqqs"]
 size = Vector2(32, 32)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ynsuh"]
+
 [node name="Playground" type="Node2D" unique_id=728941906]
 
 [node name="Floor" type="Sprite2D" parent="." unique_id=1590905637]
@@ -69,7 +72,7 @@ shape = SubResource("RectangleShape2D_o00ia")
 one_way_collision = true
 
 [node name="Large Cube" type="Sprite2D" parent="." unique_id=2029622461]
-position = Vector2(370, 206)
+position = Vector2(432, 206)
 texture = SubResource("GradientTexture2D_wt17y")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Large Cube" unique_id=780039967]
@@ -78,7 +81,7 @@ texture = SubResource("GradientTexture2D_wt17y")
 shape = SubResource("RectangleShape2D_m8u5f")
 
 [node name="Cube" type="Sprite2D" parent="." unique_id=939796702]
-position = Vector2(319.99997, 221)
+position = Vector2(382, 221)
 scale = Vector2(1.1250011, 1.0624999)
 texture = SubResource("GradientTexture2D_rupst")
 
@@ -140,3 +143,25 @@ shape = SubResource("RectangleShape2D_wt17y")
 
 [node name="PlayerSpawn" parent="." unique_id=327685397 instance=ExtResource("1_rupst")]
 position = Vector2(41, 175)
+
+[node name="DamageArea" type="Area2D" parent="." unique_id=780479448]
+position = Vector2(318, 213)
+scale = Vector2(2, 2)
+collision_layer = 96
+collision_mask = 0
+script = ExtResource("2_wt17y")
+metadata/_custom_type_script = "uid://ccykaixb6egdi"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea" unique_id=497111222]
+shape = SubResource("RectangleShape2D_ynsuh")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1806370093]
+position = Vector2(-108, -1)
+collision_layer = 32
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1281981678]
+position = Vector2(336, 214)
+scale = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_ynsuh")
+debug_color = Color(0.1851949, 0.6118008, 0.20357953, 0.41960785)

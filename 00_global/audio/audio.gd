@@ -99,6 +99,7 @@ func play_spacial_sound( audio : AudioStream, pos : Vector2 ) -> void:
 	ap.stream = audio
 	ap.finished.connect( ap.queue_free )
 	ap.play()
+	print(audio," sound")
 	pass
 
 

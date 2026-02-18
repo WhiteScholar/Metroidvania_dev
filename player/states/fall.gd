@@ -55,6 +55,8 @@ func process( _delta: float ) -> PlayerState:
 # What Happens each process tick in this state?
 func physics_process( _delta: float ) -> PlayerState:
 	if player.is_on_floor():
+		VisualEffects.land_dust( player.global_position )
+		Audio.play_spacial_sound(player.land_sfx_audio, player.global_position)
 		#player.add_debug_indicator()
 		if buffer_timer > 0:
 			return jump

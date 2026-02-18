@@ -2,10 +2,111 @@
 
 [ext_resource type="TileSet" uid="uid://cb8chiiogr5sv" path="res://levels/tilesets/forgotten_forest.tres" id="1_dxpbd"]
 [ext_resource type="Script" uid="uid://cr4lq7q13x2y1" path="res://title_screen/title_screen.gd" id="1_vbjqi"]
-[ext_resource type="PackedScene" uid="uid://c1byh8d2kfyd4" path="res://levels/props/animated_torch.tscn" id="2_2dq6q"]
 [ext_resource type="Texture2D" uid="uid://d348yvghrfm0f" path="res://title_screen/metroidvania_logo.png" id="3_2dq6q"]
+[ext_resource type="Texture2D" uid="uid://dj8j8e3p64wba" path="res://levels/tilesets/sprites/forgotten_forest_example_tileset.png" id="3_oqrgu"]
+[ext_resource type="Script" uid="uid://cgyvlearru21h" path="res://general/scripts/light_flicker.gd" id="4_fv0o7"]
 [ext_resource type="Script" uid="uid://o3qjlqlshdpl" path="res://music/music_auto_trigger.gd" id="5_fk0fn"]
 [ext_resource type="AudioStream" uid="uid://dsu3sihoydmcd" path="res://music/title_01.ogg" id="6_oqrgu"]
+
+[sub_resource type="Gradient" id="Gradient_1oos5"]
+colors = PackedColorArray(0.8509804, 0.34117648, 0.3882353, 1, 0.32930076, 0.050949786, 0.050949786, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_fh6ay"]
+gradient = SubResource("Gradient_1oos5")
+height = 129
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dg56u"]
+atlas = ExtResource("3_oqrgu")
+region = Rect2(512, 256, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jk7ty"]
+atlas = ExtResource("3_oqrgu")
+region = Rect2(544, 256, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2sxnx"]
+atlas = ExtResource("3_oqrgu")
+region = Rect2(576, 256, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xisdb"]
+atlas = ExtResource("3_oqrgu")
+region = Rect2(608, 256, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n23ku"]
+atlas = ExtResource("3_oqrgu")
+region = Rect2(640, 256, 32, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_73ntp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dg56u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jk7ty")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2sxnx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xisdb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n23ku")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_l7cap"]
+offsets = PackedFloat32Array(0, 0.22891566, 0.5120482, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.68849415, 0.62826115, 0.13262165, 1, 0.5529412, 0.1882353, 0.078431375, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_dg56u"]
+gradient = SubResource("Gradient_l7cap")
+width = 256
+height = 256
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_dg56u"]
+blend_mode = 1
+light_mode = 1
+
+[sub_resource type="Gradient" id="Gradient_dg56u"]
+offsets = PackedFloat32Array(0, 0.21311475, 0.45901638, 0.6393443, 1)
+colors = PackedColorArray(0.80598646, 0.80304223, 0.4488669, 1, 0.67577326, 0.6065154, 0.15089318, 1, 0.73333335, 0.15750541, 0.07843139, 1, 0.7104485, 0.44458652, 0.09824918, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_jk7ty"]
+gradient = SubResource("Gradient_dg56u")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_2sxnx"]
+particle_flag_disable_z = true
+emission_shape = 2
+emission_sphere_radius = 3.0
+direction = Vector3(0, -20, 0)
+initial_velocity_min = 20.0
+initial_velocity_max = 300.0
+angular_velocity_min = -200.00002
+angular_velocity_max = 199.99998
+gravity = Vector3(0, 98, 0)
+scale_min = 0.5
+scale_max = 1.5
+color_ramp = SubResource("GradientTexture1D_jk7ty")
+turbulence_enabled = true
+turbulence_influence_max = 0.3
+turbulence_initial_displacement_min = -19.999998
+turbulence_initial_displacement_max = 20.000002
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_jabur"]
+gradient = SubResource("Gradient_l7cap")
+width = 512
+height = 512
+fill = 1
+fill_from = Vector2(0.5, 0.5)
 
 [sub_resource type="Animation" id="Animation_vbjqi"]
 length = 0.001
@@ -64,6 +165,7 @@ _data = {
 }
 
 [node name="TitleScreen" type="CanvasLayer" unique_id=952771424]
+layer = 5
 script = ExtResource("1_vbjqi")
 
 [node name="Control" type="Control" parent="." unique_id=1090748713]
@@ -74,6 +176,15 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="ColorRect" type="ColorRect" parent="Control" unique_id=1650550320]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.24351591, 0.24351591, 0.24351591, 1)
+
 [node name="TileMapContainer" type="Control" parent="Control" unique_id=1052799293]
 layout_mode = 1
 anchors_preset = 15
@@ -83,8 +194,15 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Background" type="TileMapLayer" parent="Control/TileMapContainer" unique_id=28876275]
+modulate = Color(0.49530724, 0.59033674, 0.6381068, 1)
 tile_map_data = PackedByteArray("AAD//wkAAAAHAA0AAAD//wgAAAAHAA0AAAD//wcAAAAHAA0AAAD//wYAAAAHAA0AAAD//wUAAAAJAA0AAAD//wQAAAAHAA0AAAD//wMAAAAHAA0AAAD//wIAAAAHAA0AAAD//wEAAAAHAA0AAAD//wAAAAAHAA0AAAD/////AAAHAA0AAAAAAP//AAAHAA0AAAAAAAAAAAAHAA0AAAAAAAEAAAAHAA0AAAAAAAIAAAAHAA0AAAAAAAMAAAAJAA0AAAAAAAQAAAAHAA0AAAAAAAUAAAAHAA0AAAAAAAYAAAAHAA0AAAAAAAcAAAAHAA0AAAAAAAgAAAAHAA0AAAAAAAkAAAAHAA0AAAABAP//AAAHAA0AAAABAAAAAAAHAA0AAAABAAEAAAAHAA0AAAABAAIAAAAHAA0AAAABAAMAAAAHAA0AAAABAAQAAAAJAA0AAAABAAUAAAAHAA0AAAABAAYAAAAHAA0AAAABAAcAAAAHAA0AAAABAAgAAAAHAA0AAAABAAkAAAAHAA0AAAACAP//AAAHAA0AAAACAAAAAAAHAA0AAAACAAEAAAAHAA0AAAACAAIAAAAHAAwAAAACAAMAAAAHAA0AAAACAAQAAAAHAA0AAAACAAUAAAAHAA0AAAACAAYAAAAHAA4AAAACAAcAAAAHAA0AAAACAAgAAAAHAA0AAAACAAkAAAAHAA0AAAADAP//AAAHAA0AAAADAAAAAAAHAA0AAAADAAEAAAAHAA0AAAADAAIAAAAIAAwAAAADAAMAAAAIAA0AAAADAAQAAAAIAA0AAAADAAUAAAAIAA0AAAADAAYAAAAIAA4AAAADAAcAAAAHAA0AAAADAAgAAAAHAA0AAAADAAkAAAAHAA0AAAAEAP//AAAHAA0AAAAEAAAAAAAHAA0AAAAEAAEAAAAHAA0AAAAEAAIAAAAJAAwAAAAEAAMAAAAHAA0AAAAEAAQAAAAHAA0AAAAEAAUAAAAHAA0AAAAEAAYAAAAJAA4AAAAEAAcAAAAHAA0AAAAEAAgAAAAHAA0AAAAEAAkAAAAHAA0AAAAFAP//AAAHAA0AAAAFAAAAAAAHAA0AAAAFAAEAAAAHAA0AAAAFAAMAAAAHAA0AAAAFAAQAAAAHAA0AAAAFAAUAAAAHAA0AAAAFAAYAAAAHAA0AAAAFAAcAAAAHAA0AAAAFAAgAAAAHAA0AAAAFAAkAAAAHAA0AAAAGAP//AAAHAA0AAAAGAAAAAAAHAA0AAAAGAAEAAAAHAA0AAAAGAAIAAAAHAA0AAAAGAAMAAAAJAA0AAAAGAAQAAAAJAA0AAAAGAAUAAAAHAA0AAAAGAAYAAAAHAA0AAAAGAAcAAAAHAA0AAAAGAAgAAAAHAA0AAAAGAAkAAAAHAA0AAAAHAP//AAAHAA0AAAAHAAAAAAAHAA0AAAAHAAEAAAAHAA0AAAAHAAIAAAAJAA0AAAAHAAMAAAAJAA0AAAAHAAQAAAAHAA0AAAAHAAUAAAAHAA0AAAAHAAYAAAAHAA0AAAAHAAcAAAAHAA0AAAAHAAgAAAAHAA0AAAAHAAkAAAAHAA0AAAAIAP//AAAHAA0AAAAIAAAAAAAHAA0AAAAIAAEAAAAHAA0AAAAIAAIAAAAHAA0AAAAIAAMAAAAJAA0AAAAIAAQAAAAHAA0AAAAIAAUAAAAJAA0AAAAIAAYAAAAHAA0AAAAIAAcAAAAHAA0AAAAIAAgAAAAHAA0AAAAIAAkAAAAHAA0AAAAJAP//AAAHAA0AAAAJAAAAAAAHAA0AAAAJAAEAAAAHAA0AAAAJAAIAAAAJAA0AAAAJAAMAAAAHAA0AAAAJAAQAAAAHAA0AAAAJAAUAAAAHAA0AAAAJAAYAAAAHAA0AAAAJAAcAAAAHAA0AAAAJAAgAAAAHAA0AAAAJAAkAAAAHAA0AAAAKAP//AAAHAA0AAAAKAAAAAAAHAA0AAAAKAAEAAAAHAA0AAAAKAAIAAAAHAAwAAAAKAAMAAAAHAA0AAAAKAAQAAAAJAA0AAAAKAAUAAAAHAA0AAAAKAAYAAAAHAA4AAAAKAAcAAAAHAA0AAAAKAAgAAAAHAA0AAAAKAAkAAAAHAA0AAAALAP//AAAHAA0AAAALAAAAAAAHAA0AAAALAAEAAAAHAA0AAAALAAIAAAAIAAwAAAALAAMAAAAIAA0AAAALAAQAAAAIAA0AAAALAAUAAAAIAA0AAAALAAYAAAAIAA4AAAALAAcAAAAHAA0AAAALAAgAAAAHAA0AAAALAAkAAAAHAA0AAAAMAP//AAAHAA0AAAAMAAAAAAAHAA0AAAAMAAEAAAAHAA0AAAAMAAIAAAAJAAwAAAAMAAMAAAAHAA0AAAAMAAQAAAAHAA0AAAAMAAUAAAAHAA0AAAAMAAYAAAAJAA4AAAAMAAcAAAAHAA0AAAAMAAgAAAAHAA0AAAAMAAkAAAAHAA0AAAANAP//AAAHAA0AAAANAAAAAAAHAA0AAAANAAEAAAAHAA0AAAANAAIAAAAHAA0AAAANAAMAAAAHAA0AAAANAAQAAAAHAA0AAAANAAUAAAAHAA0AAAANAAYAAAAHAA0AAAANAAcAAAAHAA0AAAANAAgAAAAHAA0AAAANAAkAAAAHAA0AAAAOAP//AAAHAA0AAAAOAAAAAAAHAA0AAAAOAAEAAAAHAA0AAAAOAAIAAAAHAA0AAAAOAAMAAAAHAA0AAAAOAAQAAAAJAA0AAAAOAAUAAAAHAA0AAAAOAAYAAAAHAA0AAAAOAAcAAAAHAA0AAAAOAAgAAAAHAA0AAAAOAAkAAAAHAA0AAAAPAP//AAAHAA0AAAAPAAAAAAAHAA0AAAAPAAEAAAAHAA0AAAAPAAIAAAAHAA0AAAAPAAMAAAAJAA0AAAAPAAQAAAAHAA0AAAAPAAUAAAAHAA0AAAAPAAYAAAAJAA0AAAAPAAcAAAAHAA0AAAAPAAgAAAAHAA0AAAAPAAkAAAAHAA0AAAAFAAIAAAAJAA0AAAA=")
 tile_set = ExtResource("1_dxpbd")
+
+[node name="Sprite2D" type="Sprite2D" parent="Control/TileMapContainer" unique_id=1036802191]
+modulate = Color(1, 1, 1, 0.27058825)
+position = Vector2(240, 168)
+scale = Vector2(8.5, 1)
+texture = SubResource("GradientTexture2D_fh6ay")
 
 [node name="Base" type="TileMapLayer" parent="Control/TileMapContainer" unique_id=278460241]
 tile_map_data = PackedByteArray("AAAAAAcAAAACAAgAAAAAAAgAAAACAAkAAAAAAAkAAAACAAsAAAABAAcAAAADAAgAAAABAAgAAAADAAkAAAABAAkAAAACAAsAAAACAAcAAAAEAAgAAAACAAgAAAACAAkAAAACAAkAAAACAAsAAAADAAcAAAACAAgAAAADAAgAAAADAAkAAAADAAkAAAACAAsAAAAEAAcAAAADAAgAAAAEAAgAAAACAAkAAAAEAAkAAAACAAsAAAAFAAcAAAAEAAgAAAAFAAgAAAACAAkAAAAFAAkAAAACAAsAAAAGAAcAAAADAAgAAAAGAAgAAAACAAkAAAAGAAkAAAACAAsAAAAHAAcAAAABAAgAAAAHAAgAAAADAAkAAAAHAAkAAAACAAsAAAAIAAcAAAACAAgAAAAIAAgAAAACAAkAAAAIAAkAAAACAAsAAAAJAAcAAAADAAgAAAAJAAgAAAACAAkAAAAJAAkAAAACAAsAAAAKAAcAAAAEAAgAAAAKAAgAAAACAAkAAAAKAAkAAAACAAsAAAALAAcAAAABAAgAAAALAAgAAAADAAkAAAALAAkAAAACAAsAAAAMAAcAAAABAAgAAAAMAAgAAAACAAkAAAAMAAkAAAACAAsAAAANAAcAAAACAAgAAAANAAgAAAACAAkAAAANAAkAAAACAAsAAAAOAAcAAAADAAgAAAAOAAgAAAADAAkAAAAOAAkAAAACAAsAAAAPAAcAAAAEAAgAAAAPAAgAAAAEAAkAAAAPAAkAAAACAAsAAAD//wcAAAABAAgAAAD//wgAAAABAAkAAAD//wkAAAACAAsAAAD//wAAAAACAAsAAAD//wEAAAACAAsAAAD//wIAAAACAAwAAAAAAAAAAAACAAoAAAAAAAEAAAADAAsAAAAAAAIAAAADAAwAAAABAAAAAAACAAoAAAABAAEAAAAFAA4AAAABAAIAAAAFAAwAAAACAAAAAAACAAoAAAACAAEAAAABAAwAAAADAP//AAACAAsAAAADAAAAAAACAAsAAAADAAEAAAACAAwAAAAEAP//AAACAAsAAAAEAAAAAAACAAsAAAAEAAEAAAACAAwAAAAFAP//AAACAAsAAAAFAAAAAAADAAsAAAAFAAEAAAADAAwAAAAGAP//AAACAAsAAAAGAAAAAAACAAsAAAAGAAEAAAAEAAwAAAAHAP//AAACAAsAAAAHAAAAAAACAAsAAAAHAAEAAAABAAwAAAAIAP//AAACAAsAAAAIAAAAAAACAAsAAAAIAAEAAAABAAwAAAAJAP//AAACAAsAAAAJAAAAAAACAAsAAAAJAAEAAAACAAwAAAAKAP//AAACAAsAAAAKAAAAAAACAAsAAAAKAAEAAAADAAwAAAAMAAAAAAACAAsAAAAMAAEAAAAEAAwAAAANAAAAAAACAAsAAAANAAEAAAACAA4AAAANAAIAAAAAAAwAAAAOAAAAAAACAAoAAAAOAAEAAAACAAsAAAAOAAIAAAACAAwAAAAPAAAAAAADAAoAAAAPAAEAAAADAAsAAAAPAAIAAAADAAwAAAALAP//AAACAAsAAAALAAAAAAACAAsAAAALAAEAAAAEAAwAAAAPAP//AAACAAsAAAAOAP//AAACAAsAAAANAP//AAACAAsAAAAMAP//AAACAAsAAAACAP//AAACAAsAAAABAP//AAACAAsAAAAAAP//AAACAAsAAAD/////AAACAAsAAAA=")
@@ -92,135 +210,189 @@ tile_set = ExtResource("1_dxpbd")
 
 [node name="Props" type="Node2D" parent="Control/TileMapContainer" unique_id=949750553]
 
-[node name="AnimatedTorch" parent="Control/TileMapContainer/Props" unique_id=1553813932 instance=ExtResource("2_2dq6q")]
+[node name="AnimatedTorch" type="AnimatedSprite2D" parent="Control/TileMapContainer/Props" unique_id=1553813932]
 position = Vector2(72, 228)
+sprite_frames = SubResource("SpriteFrames_73ntp")
+autoplay = "default"
+offset = Vector2(0, -32)
 
-[node name="AnimatedTorch2" parent="Control/TileMapContainer/Props" unique_id=70916786 instance=ExtResource("2_2dq6q")]
+[node name="PointLight2D" type="PointLight2D" parent="Control/TileMapContainer/Props/AnimatedTorch" unique_id=59682873]
+color = Color(1.8247963, 1.8247963, 1.8247963, 1)
+energy = 0.5
+range_layer_max = 5
+texture = SubResource("GradientTexture2D_dg56u")
+offset = Vector2(0, -32)
+script = ExtResource("4_fv0o7")
+flicker_intensity = 0.125
+flicker_frequency = 0.3
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Control/TileMapContainer/Props/AnimatedTorch" unique_id=1576274225]
+material = SubResource("CanvasItemMaterial_dg56u")
+position = Vector2(0, -32)
+amount = 4
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_2sxnx")
+
+[node name="AnimatedTorch2" type="AnimatedSprite2D" parent="Control/TileMapContainer/Props" unique_id=70916786]
 position = Vector2(408, 228)
+sprite_frames = SubResource("SpriteFrames_73ntp")
+autoplay = "default"
+offset = Vector2(0, -32)
 
-[node name="MainMenu" type="VBoxContainer" parent="Control" unique_id=1329294347]
+[node name="PointLight2D" type="PointLight2D" parent="Control/TileMapContainer/Props/AnimatedTorch2" unique_id=2061777154]
+color = Color(1.8247963, 1.8247963, 1.8247963, 1)
+energy = 0.5
+range_layer_max = 5
+texture = SubResource("GradientTexture2D_dg56u")
+offset = Vector2(0, -32)
+script = ExtResource("4_fv0o7")
+flicker_intensity = 0.125
+flicker_frequency = 0.3
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Control/TileMapContainer/Props/AnimatedTorch2" unique_id=1474948294]
+material = SubResource("CanvasItemMaterial_dg56u")
+position = Vector2(0, -32)
+amount = 4
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_2sxnx")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="Control/TileMapContainer" unique_id=523974824]
+color = Color(0.5254902, 0.5254902, 0.5254902, 1)
+
+[node name="PointLight2D" type="PointLight2D" parent="Control/TileMapContainer" unique_id=483707382]
+position = Vector2(240, 176)
+color = Color(1.8247963, 1.8247963, 1.8247963, 1)
+energy = 0.5
+range_layer_max = 5
+texture = SubResource("GradientTexture2D_jabur")
+offset = Vector2(0, -32)
+script = ExtResource("4_fv0o7")
+flicker_intensity = 0.125
+flicker_frequency = 0.3
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Control" unique_id=80917753]
+layer = 6
+
+[node name="MainMenu" type="VBoxContainer" parent="Control/CanvasLayer" unique_id=1329294347]
 unique_name_in_owner = true
-visible = false
-layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -92.0
-offset_top = -85.0
+offset_top = -88.0
 offset_right = 92.0
-offset_bottom = 85.0
+offset_bottom = 88.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 10
 
-[node name="Logo" type="Control" parent="Control/MainMenu" unique_id=1562153661]
+[node name="Logo" type="Control" parent="Control/CanvasLayer/MainMenu" unique_id=1562153661]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="Sprite2D" type="Sprite2D" parent="Control/MainMenu/Logo" unique_id=1295965467]
+[node name="Sprite2D" type="Sprite2D" parent="Control/CanvasLayer/MainMenu/Logo" unique_id=1295965467]
 position = Vector2(0, 51)
 texture = ExtResource("3_2dq6q")
 hframes = 8
 vframes = 3
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Control/MainMenu/Logo" unique_id=634651477]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Control/CanvasLayer/MainMenu/Logo" unique_id=634651477]
+unique_name_in_owner = true
 libraries/ = SubResource("AnimationLibrary_oqrgu")
 autoplay = &"start"
 
-[node name="Control" type="Control" parent="Control/MainMenu" unique_id=721905768]
+[node name="Control" type="Control" parent="Control/CanvasLayer/MainMenu" unique_id=721905768]
 layout_mode = 2
 
-[node name="NewGameButton" type="Button" parent="Control/MainMenu" unique_id=2110925846]
+[node name="NewGameButton" type="Button" parent="Control/CanvasLayer/MainMenu" unique_id=2110925846]
 unique_name_in_owner = true
 layout_mode = 2
 text = "New Game"
 
-[node name="LoadGameButton" type="Button" parent="Control/MainMenu" unique_id=699396984]
+[node name="LoadGameButton" type="Button" parent="Control/CanvasLayer/MainMenu" unique_id=699396984]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Load Game"
 
-[node name="NewGameMenu" type="VBoxContainer" parent="Control" unique_id=331735857]
+[node name="NewGameMenu" type="VBoxContainer" parent="Control/CanvasLayer" unique_id=331735857]
 unique_name_in_owner = true
 visible = false
-layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -84.0
-offset_top = -57.0
+offset_top = -62.0
 offset_right = 84.0
-offset_bottom = 57.0
+offset_bottom = 62.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 10
 
-[node name="Label" type="Label" parent="Control/NewGameMenu" unique_id=455353827]
+[node name="Label" type="Label" parent="Control/CanvasLayer/NewGameMenu" unique_id=455353827]
 modulate = Color(0.6745098, 0.19607843, 0.19607843, 1)
 layout_mode = 2
 text = "Start a new game..."
 horizontal_alignment = 1
 
-[node name="Control" type="Control" parent="Control/NewGameMenu" unique_id=2103682627]
+[node name="Control" type="Control" parent="Control/CanvasLayer/NewGameMenu" unique_id=2103682627]
 layout_mode = 2
 
-[node name="NewSlot01" type="Button" parent="Control/NewGameMenu" unique_id=62042081]
+[node name="NewSlot01" type="Button" parent="Control/CanvasLayer/NewGameMenu" unique_id=62042081]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Begin Slot 01"
 
-[node name="NewSlot02" type="Button" parent="Control/NewGameMenu" unique_id=1563402092]
+[node name="NewSlot02" type="Button" parent="Control/CanvasLayer/NewGameMenu" unique_id=1563402092]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Begin Slot 02"
 
-[node name="NewSlot03" type="Button" parent="Control/NewGameMenu" unique_id=1016702611]
+[node name="NewSlot03" type="Button" parent="Control/CanvasLayer/NewGameMenu" unique_id=1016702611]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Begin Slot 03"
 
-[node name="LoadGameMenu" type="VBoxContainer" parent="Control" unique_id=2117140748]
+[node name="LoadGameMenu" type="VBoxContainer" parent="Control/CanvasLayer" unique_id=2117140748]
 unique_name_in_owner = true
 visible = false
-layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -84.0
-offset_top = -57.0
+offset_top = -62.0
 offset_right = 84.0
-offset_bottom = 57.0
+offset_bottom = 62.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 10
 
-[node name="Label" type="Label" parent="Control/LoadGameMenu" unique_id=1401902738]
+[node name="Label" type="Label" parent="Control/CanvasLayer/LoadGameMenu" unique_id=1401902738]
 modulate = Color(0.6745098, 0.19607843, 0.19607843, 1)
 layout_mode = 2
 text = "Load a saved game..."
 horizontal_alignment = 1
 
-[node name="Control" type="Control" parent="Control/LoadGameMenu" unique_id=810045254]
+[node name="Control" type="Control" parent="Control/CanvasLayer/LoadGameMenu" unique_id=810045254]
 layout_mode = 2
 
-[node name="LoadSlot01" type="Button" parent="Control/LoadGameMenu" unique_id=1657875720]
+[node name="LoadSlot01" type="Button" parent="Control/CanvasLayer/LoadGameMenu" unique_id=1657875720]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Load Slot 01"
 
-[node name="LoadSlot02" type="Button" parent="Control/LoadGameMenu" unique_id=2126827406]
+[node name="LoadSlot02" type="Button" parent="Control/CanvasLayer/LoadGameMenu" unique_id=2126827406]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Load Slot 02"
 
-[node name="LoadSlot03" type="Button" parent="Control/LoadGameMenu" unique_id=288003432]
+[node name="LoadSlot03" type="Button" parent="Control/CanvasLayer/LoadGameMenu" unique_id=288003432]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Load Slot 03"

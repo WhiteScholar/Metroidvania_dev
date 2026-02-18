@@ -16,7 +16,7 @@ extends CanvasLayer
 @onready var load_slot_02: Button = %LoadSlot02
 @onready var load_slot_03: Button = %LoadSlot03
 
-@onready var animation_player: AnimationPlayer = $Control/MainMenu/Logo/AnimationPlayer
+@onready var animation_player: AnimationPlayer = $%AnimationPlayer
 #endregion
 
 func _ready() -> void:
