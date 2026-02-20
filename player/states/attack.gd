@@ -2,8 +2,8 @@ class_name PlayerStateAttack extends PlayerState
 
 
 @export var AUDIO_ATTACK: AudioStream = preload("uid://bry57pg6prusi")
-@export var combo_time_window : float = 0.2
-@export var move_speed : float = 100
+@export var combo_time_window : float = 0.25
+@export var move_speed : float = 150
 var timer : float = 0.0
 var combo : int = 0
 
@@ -29,6 +29,7 @@ func exit() -> void:
 	player.animation_player.animation_finished.disconnect( _on_animation_finished )
 	attack_sprite_2d.visible = false
 	next_state = null
+	combo = 0
 	pass
 
 
@@ -37,6 +38,8 @@ func handle_input( _event : InputEvent ) -> PlayerState:
 	 #Handle Input
 	if _event.is_action_pressed( "attack" ):
 		timer = combo_time_window
+	if _event.is_action_released( "jump" ):
+		player.velocity.y *= 0.5
 	if _event.is_action_pressed( "jump" ):
 		if player.is_on_floor():
 			return jump
@@ -75,8 +78,10 @@ func _end_attack() -> void:
 	if timer > 0:
 		combo = wrapi( combo + 1, 0, 2 )
 		do_attack()
-	else:
+	elif player.is_on_floor():
 		next_state = idle
+	else:
+		next_state = fall
 	pass
 
 

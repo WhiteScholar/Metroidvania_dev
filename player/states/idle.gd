@@ -27,7 +27,7 @@ func handle_input( _event : InputEvent ) -> PlayerState:
 	# Handle Input
 	if _event.is_action_pressed( "attack" ):
 		return attack
-	if _event.is_action_pressed( "jump" ):
+	if _event.is_action_pressed( "jump" ) and player.is_on_floor() == true:
 		return jump
 	return next_state
 
