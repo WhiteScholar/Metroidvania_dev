@@ -78,10 +78,11 @@ func _end_attack() -> void:
 	if timer > 0:
 		combo = wrapi( combo + 1, 0, 2 )
 		do_attack()
-	elif player.is_on_floor():
-		next_state = idle
 	else:
-		next_state = fall
+		if player.is_on_floor():
+			next_state = idle
+		else:
+			next_state = fall
 	pass
 
 
