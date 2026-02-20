@@ -2,6 +2,9 @@
 
 [ext_resource type="PackedScene" uid="uid://im35ksfavjk" path="res://general/player_spawn/player_spawn.tscn" id="1_rupst"]
 [ext_resource type="Script" uid="uid://ccykaixb6egdi" path="res://general/scripts/damage_area.gd" id="2_wt17y"]
+[ext_resource type="Script" uid="uid://o3qjlqlshdpl" path="res://music/music_auto_trigger.gd" id="3_is3ju"]
+[ext_resource type="AudioStream" uid="uid://cm3ky8a4rs3ui" path="res://sfx/hit.wav" id="3_o00ia"]
+[ext_resource type="AudioStream" uid="uid://dsu3sihoydmcd" path="res://music/title_01.ogg" id="4_o00ia"]
 
 [sub_resource type="Gradient" id="Gradient_edjgo"]
 colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
@@ -150,6 +153,7 @@ scale = Vector2(2, 2)
 collision_layer = 96
 collision_mask = 0
 script = ExtResource("2_wt17y")
+audio = ExtResource("3_o00ia")
 metadata/_custom_type_script = "uid://ccykaixb6egdi"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea" unique_id=497111222]
@@ -165,3 +169,8 @@ position = Vector2(336, 214)
 scale = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_ynsuh")
 debug_color = Color(0.1851949, 0.6118008, 0.20357953, 0.41960785)
+
+[node name="MusicAutoTrigger" type="Node" parent="." unique_id=576197974]
+script = ExtResource("3_is3ju")
+track = ExtResource("4_o00ia")
+metadata/_custom_type_script = "uid://o3qjlqlshdpl"

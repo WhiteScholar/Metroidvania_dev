@@ -83,11 +83,13 @@ texture_under = SubResource("GradientTexture2D_26715")
 texture_progress = SubResource("GradientTexture2D_4jtec")
 
 [node name="Button" type="Button" parent="Control" unique_id=908152629]
+visible = false
 layout_mode = 0
 offset_left = 369.0
 offset_top = 3.0
 offset_right = 477.0
 offset_bottom = 26.0
+disabled = true
 text = "Test Particles"
 script = SubResource("GDScript_vb1bs")
 particle_settings = ExtResource("3_26715")

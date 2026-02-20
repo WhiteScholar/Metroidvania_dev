@@ -36,6 +36,8 @@ func exit() -> void:
 # what happens when an input is pressed?
 func handle_input( _event : InputEvent ) -> PlayerState:
 	# Handle Input
+	if _event.is_action_pressed( "attack" ):
+		return attack
 	if _event.is_action_pressed( "jump" ):
 		if coyote_timer > 0:
 			return jump
@@ -56,7 +58,7 @@ func process( _delta: float ) -> PlayerState:
 func physics_process( _delta: float ) -> PlayerState:
 	if player.is_on_floor():
 		VisualEffects.land_dust( player.global_position )
-		Audio.play_spacial_sound(player.land_sfx_audio, player.global_position)
+		Audio.play_spatial_sound(player.land_sfx_audio, player.global_position)
 		#player.add_debug_indicator()
 		if buffer_timer > 0:
 			return jump

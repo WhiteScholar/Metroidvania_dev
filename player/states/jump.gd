@@ -12,7 +12,7 @@ func init() -> void:
 # What happens when we enter this state?
 func enter() -> void:
 	VisualEffects.jump_dust( player.global_position )
-	Audio.play_spacial_sound(player.jump_sfx_audio, player.global_position)
+	Audio.play_spatial_sound(player.jump_sfx_audio, player.global_position)
 	player.animation_player.play( "jump" )
 	player.animation_player.pause()
 	#player.add_debug_indicator( Color.LIME_GREEN )
@@ -37,8 +37,10 @@ func exit() -> void:
 
 # what happens when an input is pressed?
 func handle_input( _event : InputEvent ) -> PlayerState:
+	if _event.is_action_pressed( "attack" ):
+		return attack
 	if _event.is_action_released( "jump" ):
-		player.velocity.y *= 0.5
+#		player.velocity.y *= 0.5
 		pass
 	return next_state
 

@@ -23,7 +23,7 @@ func _ready() -> void:
 
 func _on_switch_activated() -> void:
 	# Audio playback
-	Audio.play_spacial_sound( DOOR_CRASH_AUDIO, global_position )
+	Audio.play_spatial_sound( DOOR_CRASH_AUDIO, global_position )
 	# Play Animation
 	animation_player.play( "open" )
 	VisualEffects.hit_particles( Vector2( global_position.x, global_position.y - 96.0 ), Vector2(0,1), particle_settings )
