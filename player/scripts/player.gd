@@ -10,7 +10,7 @@ const DEBUG_JUMP_INDICATOR = preload("uid://dc6eu2r6qgcxb")
 @onready var collision_crouch: CollisionShape2D = $CollisionCrouch
 @onready var one_way_platform_shapecast: ShapeCast2D = $OneWayPlatformShapecast
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
-@onready var attack_area: AttackArea = %AttackArea
+@onready var attack_area: AttackArea = %PlayerAttackArea
 
 #endregion
 

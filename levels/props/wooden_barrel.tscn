@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://dih7abhvmk5ey"]
+
+[ext_resource type="Script" uid="uid://bv4s2klxmb5ab" path="res://general/scripts/breakable.gd" id="1_55vvu"]
+[ext_resource type="Script" uid="uid://de3e78vc0bbas" path="res://00_global/visual_effects/hit_particle_settings.gd" id="2_qhhdx"]
+[ext_resource type="Resource" uid="uid://djsiedmt58yd3" path="res://00_global/visual_effects/hit_particle_settings/hit_wood_medium.tres" id="3_dycet"]
+[ext_resource type="Resource" uid="uid://cmrjqaf3upbfd" path="res://00_global/visual_effects/hit_particle_settings/hit_wood_small.tres" id="4_x7v63"]
+[ext_resource type="Resource" uid="uid://3rd6cacyt4td" path="res://00_global/visual_effects/hit_particle_settings/hit_wood_large.tres" id="5_e2obe"]
+[ext_resource type="Texture2D" uid="uid://dsjakagbnr5iw" path="res://general/sprites/props_destructible.png" id="6_htbx3"]
+[ext_resource type="Script" uid="uid://ccykaixb6egdi" path="res://general/scripts/damage_area.gd" id="7_gaxgj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6pveq"]
+atlas = ExtResource("6_htbx3")
+region = Rect2(108, 37, 24, 26)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ei5s3"]
+size = Vector2(20, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_drbjp"]
+size = Vector2(20, 21)
+
+[node name="Barrel" type="Node2D" unique_id=1344657231]
+script = ExtResource("1_55vvu")
+fixed_hit_count = true
+hit_particles = Array[ExtResource("2_qhhdx")]([ExtResource("3_dycet")])
+destroy_particles = Array[ExtResource("2_qhhdx")]([ExtResource("4_x7v63"), ExtResource("3_dycet"), ExtResource("5_e2obe")])
+metadata/_custom_type_script = "uid://bv4s2klxmb5ab"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1429841885]
+position = Vector2(0, -13)
+texture = SubResource("AtlasTexture_6pveq")
+
+[node name="DamageArea" type="Area2D" parent="." unique_id=166378517]
+collision_layer = 64
+script = ExtResource("7_gaxgj")
+metadata/_custom_type_script = "uid://ccykaixb6egdi"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea" unique_id=1763313192]
+position = Vector2(0, -12)
+shape = SubResource("RectangleShape2D_ei5s3")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1178661544]
+position = Vector2(0, -18)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1934575419]
+position = Vector2(0, 7.5)
+shape = SubResource("RectangleShape2D_drbjp")

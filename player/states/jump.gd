@@ -39,7 +39,7 @@ func exit() -> void:
 func handle_input( _event : InputEvent ) -> PlayerState:
 	if _event.is_action_pressed( "attack" ):
 		return attack
-	if _event.is_action_released( "jump" ):
+	if _event.is_action_released( "jump" ) and player.velocity.y < 0:
 		player.velocity.y *= 0.5
 		pass
 	return next_state

@@ -38,7 +38,7 @@ func handle_input( _event : InputEvent ) -> PlayerState:
 	 #Handle Input
 	if _event.is_action_pressed( "attack" ):
 		timer = combo_time_window
-	if _event.is_action_released( "jump" ):
+	if _event.is_action_released( "jump" ) and player.velocity.y < 0:
 		player.velocity.y *= 0.5
 	if _event.is_action_pressed( "jump" ):
 		if player.is_on_floor():
