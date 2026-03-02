@@ -17,6 +17,8 @@ enum SIDE { LEFT, RIGHT, TOP, BOTTOM }
 @export_file( "*.tscn" ) var target_level : String = ""
 @export var target_area_name : String = "LevelTransition"
 
+@export var map_visible : bool = true
+
 @onready var area_2d = $Area2D
 
 

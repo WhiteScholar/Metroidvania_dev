@@ -45,12 +45,12 @@ func create_new_game_save( slot : int ) -> void:
 	current_slot = slot
 	discovered_areas.clear()
 	persistent_data.clear()
-	var new_game_scene : String = "res://levels/00_forest/01.tscn"
+	var new_game_scene : String = "res://levels/00_forest/00.tscn"
 	discovered_areas.append(new_game_scene)
 	save_data = {
 		"scene_path" : new_game_scene,
-		"x" : 92,
-		"y" : 133,
+		"x" : 68,
+		"y" : 360,
 		"hp" : 20,
 		"max_hp" : 20,
 		"dash" : false,

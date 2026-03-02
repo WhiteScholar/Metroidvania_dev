@@ -15,6 +15,7 @@
 [ext_resource type="Resource" uid="uid://v648smhyfjgq" path="res://00_global/visual_effects/hit_particle_settings/hit_stone_small.tres" id="12_jgc46"]
 [ext_resource type="Resource" uid="uid://c5ljmqkmiev7c" path="res://00_global/visual_effects/hit_particle_settings/hit_stone_medium.tres" id="13_dk0co"]
 [ext_resource type="PackedScene" uid="uid://dih7abhvmk5ey" path="res://levels/props/wooden_barrel.tscn" id="14_f7pug"]
+[ext_resource type="PackedScene" uid="uid://dff3y47dsacns" path="res://levels/props/test_dummy/spike_dummy.tscn" id="16_dk0co"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pactg"]
 size = Vector2(24, 192)
@@ -42,7 +43,7 @@ tile_map_data = PackedByteArray("AAAAAAgAAAAUAAMAAAABAAgAAAAVAAAAAAACAAgAAAAVAAA
 tile_set = ExtResource("1_h1jm5")
 
 [node name="PlayerSpawn" parent="." unique_id=327685397 instance=ExtResource("1_rupst")]
-position = Vector2(839, 264)
+position = Vector2(672, 264)
 
 [node name="MusicAutoTrigger" type="Node" parent="." unique_id=576197974]
 script = ExtResource("3_is3ju")
@@ -88,16 +89,18 @@ position = Vector2(104, -16)
 shape = SubResource("RectangleShape2D_pactg")
 
 [node name="Barrel" parent="." unique_id=1344657231 instance=ExtResource("14_f7pug")]
-position = Vector2(176, 264)
+position = Vector2(88, 264)
+hp = 2.0
 
 [node name="Barrel2" parent="." unique_id=1050455461 instance=ExtResource("14_f7pug")]
-position = Vector2(200, 264)
-
-[node name="Barrel3" parent="." unique_id=1230331574 instance=ExtResource("14_f7pug")]
-position = Vector2(224, 264)
+position = Vector2(232, 264)
+hp = 2.0
 
 [node name="Crate" parent="." unique_id=1841622436 instance=ExtResource("10_h1jm5")]
-position = Vector2(264, 264)
+position = Vector2(192, 264)
 
 [node name="Crate2" parent="." unique_id=1008564529 instance=ExtResource("10_h1jm5")]
-position = Vector2(304, 264)
+position = Vector2(368, 264)
+
+[node name="SpikeDummy" parent="." unique_id=437137164 instance=ExtResource("16_dk0co")]
+position = Vector2(800, 264)
