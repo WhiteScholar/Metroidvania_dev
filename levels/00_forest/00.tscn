@@ -142,18 +142,21 @@ position = Vector2(1420, 292)
 
 [node name="Barrel" parent="Props" unique_id=1344657231 instance=ExtResource("4_08smt")]
 position = Vector2(40, 292)
+hp = 2.0
 
 [node name="Barrel2" parent="Props" unique_id=1969427300 instance=ExtResource("4_08smt")]
 position = Vector2(308, 356)
+hp = 2.0
 
 [node name="Barrel3" parent="Props" unique_id=142581651 instance=ExtResource("4_08smt")]
-position = Vector2(332, 356)
+position = Vector2(632, 264)
+hp = 2.0
 
 [node name="Crate" parent="Props" unique_id=1565172806 instance=ExtResource("5_4pyo8")]
 position = Vector2(408, 356)
 
 [node name="Crate2" parent="Props" unique_id=514323108 instance=ExtResource("5_4pyo8")]
-position = Vector2(648, 264)
+position = Vector2(604, 264)
 
 [node name="TestDummy" parent="Props" unique_id=616414370 instance=ExtResource("6_bqy4p")]
 position = Vector2(768, 288)
@@ -228,6 +231,15 @@ scale = Vector2(0.32593852, 1.3219748)
 texture = ExtResource("5_p1b2w")
 offset = Vector2(0, 256)
 
+[node name="Sprite2D8" type="Sprite2D" parent="LightShafts" unique_id=1227362666]
+z_index = 5
+material = SubResource("CanvasItemMaterial_8y5st")
+position = Vector2(776, -104)
+rotation = 0.35804117
+scale = Vector2(0.32593852, 1.3219748)
+texture = ExtResource("5_p1b2w")
+offset = Vector2(0, 256)
+
 [node name="Sprite2D3" type="Sprite2D" parent="LightShafts" unique_id=1627716953]
 z_index = 5
 material = SubResource("CanvasItemMaterial_8y5st")
@@ -242,6 +254,24 @@ z_index = 5
 material = SubResource("CanvasItemMaterial_8y5st")
 position = Vector2(740, -112)
 rotation = 0.33910665
+scale = Vector2(0.78046924, 1.0102313)
+texture = ExtResource("5_p1b2w")
+offset = Vector2(0, 256)
+
+[node name="Sprite2D6" type="Sprite2D" parent="LightShafts" unique_id=750655320]
+z_index = 5
+material = SubResource("CanvasItemMaterial_8y5st")
+position = Vector2(524, -100.000015)
+rotation = 0.49501306
+scale = Vector2(0.78046924, 1.0102313)
+texture = ExtResource("5_p1b2w")
+offset = Vector2(0, 256)
+
+[node name="Sprite2D7" type="Sprite2D" parent="LightShafts" unique_id=656227520]
+z_index = 5
+material = SubResource("CanvasItemMaterial_8y5st")
+position = Vector2(1020, -80)
+rotation = 0.34742683
 scale = Vector2(0.78046924, 1.0102313)
 texture = ExtResource("5_p1b2w")
 offset = Vector2(0, 256)

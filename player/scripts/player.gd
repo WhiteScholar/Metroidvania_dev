@@ -213,6 +213,8 @@ func _on_player_healed( amount : float ) -> void:
 	pass
 
 func _on_damage_taken( attack_area : AttackArea ) -> void:
+	if current_state == PlayerStateDeath:
+		return
 	# Reduce HP
 	hp -= attack_area.damage
 	# emit signal

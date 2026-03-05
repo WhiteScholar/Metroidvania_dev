@@ -8,8 +8,11 @@
 [ext_resource type="PackedScene" uid="uid://n7pmxxckvq2n" path="res://general/door_and_switch/switch.tscn" id="6_1vjl2"]
 [ext_resource type="Resource" uid="uid://v648smhyfjgq" path="res://00_global/visual_effects/hit_particle_settings/hit_stone_small.tres" id="6_d3fjw"]
 [ext_resource type="PackedScene" uid="uid://im35ksfavjk" path="res://general/player_spawn/player_spawn.tscn" id="7_k841l"]
+[ext_resource type="PackedScene" uid="uid://clmek7774j235" path="res://levels/props/Crate.tscn" id="7_paobx"]
 [ext_resource type="Script" uid="uid://o3qjlqlshdpl" path="res://music/music_auto_trigger.gd" id="8_rklp7"]
+[ext_resource type="PackedScene" uid="uid://dih7abhvmk5ey" path="res://levels/props/wooden_barrel.tscn" id="8_tnbg1"]
 [ext_resource type="AudioStream" uid="uid://dr7br0pd7lxit" path="res://music/dungeon_01.ogg" id="9_d3fjw"]
+[ext_resource type="PackedScene" uid="uid://dff3y47dsacns" path="res://levels/props/test_dummy/spike_dummy.tscn" id="9_ntld2"]
 
 [node name="04" type="Node2D" unique_id=985948519]
 
@@ -29,6 +32,14 @@ tile_set = ExtResource("2_2hhtl")
 tile_map_data = PackedByteArray("AAAHAAYAAAAAAAgAAAAHAAcAAAAAAAkAAAAHAAgAAAAAAAoAAAAHAAkAAAAAAAsAAAAIAAYAAAABAAgAAAAIAAcAAAABAAkAAAAIAAgAAAABAAoAAAAIAAkAAAABAAsAAAAJAAYAAAACAAgAAAAJAAcAAAACAAkAAAAJAAgAAAACAAoAAAAJAAkAAAACAAsAAAAKAAYAAAADAAgAAAAKAAcAAAADAAkAAAAKAAgAAAADAAoAAAAKAAkAAAADAAsAAAALAAYAAAAEAAgAAAALAAcAAAAEAAkAAAALAAgAAAAEAAoAAAALAAkAAAAEAAsAAAAMAAYAAAAFAAgAAAAMAAcAAAAFAAkAAAAMAAgAAAAFAAoAAAAMAAkAAAAFAAsAAAAPAAUAAAAAAAgAAAAPAAYAAAAAAAkAAAAPAAcAAAAAAAoAAAAPAAgAAAAAAAsAAAAQAAUAAAABAAgAAAAQAAYAAAABAAkAAAAQAAcAAAABAAoAAAAQAAgAAAABAAsAAAARAAUAAAACAAgAAAARAAYAAAACAAkAAAARAAcAAAACAAoAAAARAAgAAAACAAsAAAASAAUAAAADAAgAAAASAAYAAAADAAkAAAASAAcAAAADAAoAAAASAAgAAAADAAsAAAATAAUAAAAEAAgAAAATAAYAAAAEAAkAAAATAAcAAAAEAAoAAAATAAgAAAAEAAsAAAAUAAUAAAAFAAgAAAAUAAYAAAAFAAkAAAAUAAcAAAAFAAoAAAAUAAgAAAAFAAsAAAAPAAkAAAAAAAwAAAAQAAkAAAABAAwAAAARAAkAAAACAAwAAAASAAkAAAADAAwAAAATAAkAAAAEAAwAAAAUAAkAAAAFAAwAAAAHAAoAAAAAAAwAAAAIAAoAAAABAAwAAAAJAAoAAAACAAwAAAAKAAoAAAADAAwAAAALAAoAAAAEAAwAAAAMAAoAAAAFAAwAAAAcAAUAAAAAAAgAAAAcAAYAAAAAAAkAAAAcAAcAAAAAAAoAAAAcAAgAAAAAAAsAAAAcAAkAAAAAAAwAAAAdAAUAAAABAAgAAAAdAAYAAAABAAkAAAAdAAcAAAABAAoAAAAdAAgAAAABAAsAAAAdAAkAAAABAAwAAAAeAAUAAAACAAgAAAAeAAYAAAACAAkAAAAeAAcAAAACAAoAAAAeAAgAAAACAAsAAAAeAAkAAAACAAwAAAAfAAUAAAADAAgAAAAfAAYAAAADAAkAAAAfAAcAAAADAAoAAAAfAAgAAAADAAsAAAAfAAkAAAADAAwAAAAgAAUAAAAEAAgAAAAgAAYAAAAEAAkAAAAgAAcAAAAEAAoAAAAgAAgAAAAEAAsAAAAgAAkAAAAEAAwAAAAhAAUAAAAFAAgAAAAhAAYAAAAFAAkAAAAhAAcAAAAFAAoAAAAhAAgAAAAFAAsAAAAhAAkAAAAFAAwAAAA=")
 tile_set = ExtResource("2_2hhtl")
 
+[node name="Door" parent="." unique_id=560612131 instance=ExtResource("5_2hhtl")]
+position = Vector2(512, 159)
+camera_shake_on_open = 5.0
+particle_settings = ExtResource("6_d3fjw")
+
+[node name="Switch" parent="Door" unique_id=110465436 instance=ExtResource("6_1vjl2")]
+position = Vector2(-124, 35)
+
 [node name="Props" type="Node2D" parent="." unique_id=1051519075]
 
 [node name="AnimatedTorch" parent="Props" unique_id=1553813932 instance=ExtResource("3_1vjl2")]
@@ -42,6 +53,24 @@ position = Vector2(620, 164)
 
 [node name="AnimatedTorch4" parent="Props" unique_id=1565588196 instance=ExtResource("3_1vjl2")]
 position = Vector2(984, 164)
+
+[node name="Crate" parent="Props" unique_id=1344657231 instance=ExtResource("7_paobx")]
+position = Vector2(388, 196)
+
+[node name="Barrel" parent="Props" unique_id=1360184735 instance=ExtResource("8_tnbg1")]
+position = Vector2(428, 232)
+
+[node name="Barrel2" parent="Props" unique_id=1127670723 instance=ExtResource("8_tnbg1")]
+position = Vector2(580, 164)
+
+[node name="Barrel3" parent="Props" unique_id=1128553428 instance=ExtResource("8_tnbg1")]
+position = Vector2(212, 228)
+
+[node name="SpikeDummy" parent="Props" unique_id=616414370 instance=ExtResource("9_ntld2")]
+position = Vector2(752, 228)
+
+[node name="SpikeDummy2" parent="Props" unique_id=1980542014 instance=ExtResource("9_ntld2")]
+position = Vector2(816, 228)
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="." unique_id=290492311]
 color = Color(0.99183756, 0.8661584, 0.8546558, 0.72156864)
@@ -58,14 +87,6 @@ target_area_name = "LevelTransition2"
 position = Vector2(1024, 160)
 size = 3
 location = 1
-
-[node name="Door" parent="." unique_id=560612131 instance=ExtResource("5_2hhtl")]
-position = Vector2(512, 159)
-camera_shake_on_open = 5.0
-particle_settings = ExtResource("6_d3fjw")
-
-[node name="Switch" parent="Door" unique_id=110465436 instance=ExtResource("6_1vjl2")]
-position = Vector2(-124, 35)
 
 [node name="PlayerSpawn" parent="." unique_id=327685397 instance=ExtResource("7_k841l")]
 position = Vector2(328, 196)

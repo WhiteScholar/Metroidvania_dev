@@ -28,8 +28,9 @@ func transition_scene( new_scene : String, target_area : String, player_offset :
 	var fade_pos : Vector2 = get_fade_pos( dir )
 	
 	fade.visible = true
-	load_scene_started.emit()
+	
 	await fade_screen( fade_pos, Vector2.ZERO )
+	load_scene_started.emit()
 	
 	get_tree().change_scene_to_file( new_scene )
 	current_scene_uid = ResourceUID.path_to_uid( new_scene )

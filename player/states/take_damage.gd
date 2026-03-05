@@ -42,6 +42,8 @@ func handle_input( _event : InputEvent ) -> PlayerState:
 func process( _delta: float ) -> PlayerState:
 	time -= _delta
 	if time <= 0:
+		if player.hp <= 0:
+			return death
 		return idle
 	return next_state
 
@@ -54,6 +56,8 @@ func physics_process( _delta: float ) -> PlayerState:
 
 
 func _on_damage_taken( attack_area : AttackArea ) -> void:
+	if player.current_state == death:
+		return
 	player.change_state( self )
 	VisualEffects.camera_shake((attack_area.damage / player.max_hp) * 20)
 	print( "Screen Shake Velocity: ", (attack_area.damage / player.max_hp) * 20)
