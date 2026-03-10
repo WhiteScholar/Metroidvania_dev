@@ -11,7 +11,7 @@ signal damage_taken
 #endregion
 
 #region /// on ready variables
-@onready var sprite: Sprite2D = $Sprite2D
+@onready var sprite: PlayerSprite = $Sprite2D
 @onready var attack_sprite: Sprite2D = %AttackSprite2D
 @onready var collision_stand: CollisionShape2D = $CollisionStand
 @onready var collision_crouch: CollisionShape2D = $CollisionCrouch
@@ -53,7 +53,9 @@ var previous_state : PlayerState :
 		Messages.player_health_changed.emit( hp, max_hp )
 
 @export var dash : bool = false
+var dash_count : int = 0
 @export var double_jump : bool = false
+var jump_count : int = 0
 @export var ground_slam : bool = false
 @export var morph_roll : bool = false
 #endregion
@@ -221,3 +223,8 @@ func _on_damage_taken( attack_area : AttackArea ) -> void:
 	damage_taken.emit()
 	print( "Player took damage: ", hp, "HP remaining.")
 	pass
+
+func can_dash() -> bool:
+	if dash == false or dash_count > 0:
+		return false
+	return true

@@ -14,6 +14,8 @@ func enter() -> void:
 		player.animation_player.queue("idle")
 	else:
 		player.animation_player.play( "idle" )
+	player.jump_count = 0
+	player.dash_count = 0
 	pass
 
 
@@ -24,7 +26,9 @@ func exit() -> void:
 
 # what happens when an input is pressed?
 func handle_input( _event : InputEvent ) -> PlayerState:
-	# Handle Input
+	# Handle Input+
+	if _event.is_action_pressed( "dash" ) and player.can_dash():
+		return dash
 	if _event.is_action_pressed( "attack" ):
 		return attack
 	if _event.is_action_pressed( "jump" ) and player.is_on_floor() == true:

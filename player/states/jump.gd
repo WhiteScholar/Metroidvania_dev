@@ -11,19 +11,19 @@ func init() -> void:
 
 # What happens when we enter this state?
 func enter() -> void:
-	VisualEffects.jump_dust( player.global_position )
-	Audio.play_spatial_sound(player.jump_sfx_audio, player.global_position)
+	if player.is_on_floor():
+		VisualEffects.jump_dust( player.global_position )
+	else:
+		VisualEffects.hit_dust( player.global_position )
 	player.animation_player.play( "jump" )
 	player.animation_player.pause()
 	#player.add_debug_indicator( Color.LIME_GREEN )
-	player.velocity.y = -jump_velocity
-	
+	do_jump()
 	# Check if this is a buffer jump
 	# If it is, handle jump button release condition retroactively
 	if player.previous_state == fall and not Input.is_action_pressed( "jump" ):
 		await get_tree().physics_frame
 		player.velocity.y *= 0.5
-		
 		pass
 	
 	pass
@@ -37,6 +37,8 @@ func exit() -> void:
 
 # what happens when an input is pressed?
 func handle_input( _event : InputEvent ) -> PlayerState:
+	if _event.is_action_pressed( "dash" ) and player.can_dash():
+		return dash
 	if _event.is_action_pressed( "attack" ):
 		return attack
 	if _event.is_action_released( "jump" ) and player.velocity.y < 0:
@@ -61,6 +63,16 @@ func physics_process( _delta: float ) -> PlayerState:
 	
 	return next_state
 
+func do_jump() -> void:
+	if player.jump_count > 0:
+		if player.double_jump == false:
+			return
+		elif player.jump_count > 1:
+			return
+	player.jump_count += 1
+	player.velocity.y = -jump_velocity
+	Audio.play_spatial_sound(player.jump_sfx_audio, player.global_position)
+	pass
 
 func set_jump_frame() -> void:
 	var frame : float = remap( player.velocity.y, -jump_velocity, 0.0, 0.0, 0.5 )

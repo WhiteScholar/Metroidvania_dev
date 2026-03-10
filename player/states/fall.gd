@@ -18,8 +18,17 @@ func init() -> void:
 func enter() -> void:
 	player.animation_player.play( "jump" )
 	player.gravity_multiplier = fall_gravity_multiplier
-	if player.previous_state == jump or player.previous_state == attack:
+	
+	#handle jump count
+	if player.jump_count == 0:
+		player.jump_count = 1
+		pass
+	var prev : PlayerState = player.previous_state
+	if prev == jump or prev == attack or prev == dash:
 		coyote_timer = 0
+	elif player.previous_state == crouch:
+		coyote_timer = 0
+		player.jump_count = 1
 	else:
 		coyote_timer = coyote_time
 	pass
@@ -36,10 +45,15 @@ func exit() -> void:
 # what happens when an input is pressed?
 func handle_input( _event : InputEvent ) -> PlayerState:
 	# Handle Input
+	if _event.is_action_pressed( "dash" ) and player.can_dash():
+		return dash
 	if _event.is_action_pressed( "attack" ):
 		return attack
 	if _event.is_action_pressed( "jump" ):
 		if coyote_timer > 0:
+			player.jump_count = 0
+			return jump
+		elif player.jump_count <= 1 and player.double_jump:
 			return jump
 		else:
 			buffer_timer = jump_buffer_time
@@ -61,6 +75,7 @@ func physics_process( _delta: float ) -> PlayerState:
 		Audio.play_spatial_sound(player.land_sfx_audio, player.global_position)
 		#player.add_debug_indicator()
 		if buffer_timer > 0:
+			player.jump_count = 0
 			return jump
 		return idle
 	player.velocity.x = player.direction.x * player.move_speed

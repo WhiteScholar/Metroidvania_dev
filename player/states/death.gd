@@ -1,4 +1,3 @@
-@icon( "res://player/states/state.svg" )
 class_name PlayerStateDeath extends PlayerState
 
 const DEATH_AUDIO = preload("uid://bvfywyjuf6lut")

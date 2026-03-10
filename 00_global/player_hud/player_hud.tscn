@@ -29,7 +29,12 @@ func _on_pressed() -> void:
 #	var pos : Vector2 = get_tree().get_first_node_in_group(\"Player\").global_position
 #	VisualEffects.hit_particles( pos, Vector2(0,0), particle_settings )
 #	VisualEffects.camera_shake()
-	PlayerHud.show_game_over()
+#	PlayerHud.show_game_over()
+	var player : Player = get_tree().get_first_node_in_group( \"Player\" )
+	player.dash = !player.dash
+	player.double_jump = !player.double_jump
+	player.ground_slam = !player.ground_slam
+	player.morph_roll = !player.morph_roll
 	pass
 "
 
@@ -84,13 +89,13 @@ texture_under = SubResource("GradientTexture2D_26715")
 texture_progress = SubResource("GradientTexture2D_4jtec")
 
 [node name="Button" type="Button" parent="Control" unique_id=908152629]
-visible = false
 layout_mode = 0
 offset_left = 356.0
 offset_top = 3.0
 offset_right = 477.0
 offset_bottom = 26.0
-text = "Test Game Over"
+focus_mode = 0
+text = "Toggle Skills"
 script = SubResource("GDScript_vb1bs")
 particle_settings = ExtResource("3_26715")
 
